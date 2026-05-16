@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /serve.mjs
+
+Sitemap: https://www.sanifase.pt/sitemap.xml

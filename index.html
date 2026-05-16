@@ -1,14 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanifase — Conforto, Energia e Soluções Técnicas</title>
+
+<!-- Primary SEO -->
+<title>Sanifase — Ar Condicionado, Tijoleiras, Tintas, Canalização e Material Elétrico</title>
+<meta name="description" content="A Sanifase é a sua loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico. Instalação de equipamentos incluída. Contacte-nos: +351 918 532 497.">
+<meta name="keywords" content="ar condicionado, bombas de calor, tijoleiras, tintas, canalização, material elétrico, climatização, instalação ar condicionado, aquecimento, ferramentas, Sanifase, loja materiais construção">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Sanifase Lda">
+<link rel="canonical" href="https://www.sanifase.pt/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sanifase.pt/">
+<meta property="og:title" content="Sanifase — Ar Condicionado, Tijoleiras, Tintas e muito mais">
+<meta property="og:description" content="Loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico. Instalação incluída. +351 918 532 497.">
+<meta property="og:image" content="https://www.sanifase.pt/logo_completo_highres.png">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:site_name" content="Sanifase">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sanifase — Ar Condicionado, Tijoleiras, Tintas e muito mais">
+<meta name="twitter:description" content="Loja especializada em climatização, tijoleiras, tintas, canalização e material elétrico. Instalação incluída.">
+<meta name="twitter:image" content="https://www.sanifase.pt/logo_completo_highres.png">
+
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- JSON-LD: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sanifase Lda",
+  "description": "Loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico em Portugal. Instalação de equipamentos incluída.",
+  "url": "https://www.sanifase.pt",
+  "logo": "https://www.sanifase.pt/logo_completo_highres.png",
+  "image": "https://www.sanifase.pt/logo_completo_highres.png",
+  "telephone": "+351918532497",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card",
+  "sameAs": [
+    "https://www.instagram.com/sanifase_/",
+    "https://www.facebook.com/SaniFaseLda"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "14:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "14:00",
+      "closes": "18:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Produtos e Serviços",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ar Condicionado e Instalação"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bombas de Calor"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Tijoleiras e Revestimentos"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Tintas e Vernizes"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Material de Canalização"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Material Elétrico"}}
+    ]
+  }
+}
+</script>
 <style>
 :root {
   --navy:   #001845;
@@ -706,7 +791,7 @@ footer {
 <body>
 
 <!-- NAV -->
-<nav id="nav">
+<nav id="nav" aria-label="Navegação principal">
   <a href="#" class="nav-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
   <ul class="nav-links">
     <li><a href="#servicos">Serviços</a></li>
@@ -724,14 +809,16 @@ footer {
   </div>
 </nav>
 
+<main id="conteudo-principal">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" aria-label="Apresentação Sanifase">
   <div class="hero-glow"></div>
   <div class="hero-grid-lines"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-brand fade-up">
-        <img src="/logo.png" alt="Sanifase">
+        <img src="/logo.png" alt="Logótipo Sanifase — Ar Condicionado, Canalização e Climatização">
         <div>
           <span class="hero-brand-name">SANIFASE</span>
           <span class="hero-brand-sub">Eletricidade · Canalização · Climatização</span>
@@ -772,13 +859,13 @@ footer {
     </div>
     <div class="hero-photos fade-up d2">
       <div class="hphoto hp1">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(5).jpeg" alt="Showroom Sanifase — climatização e aquecimento">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(5).jpeg" alt="Showroom Sanifase — exposição de ar condicionado, bombas de calor e aquecimento">
       </div>
       <div class="hphoto hp2">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(8).jpeg" alt="Balcão Sanifase">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(8).jpeg" alt="Balcão de atendimento Sanifase com logótipo iluminado">
       </div>
       <div class="hphoto hp3">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(3).jpeg" alt="Material elétrico Efapel">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(3).jpeg" alt="Exposição de material elétrico Efapel no showroom Sanifase">
       </div>
     </div>
   </div>
@@ -1154,8 +1241,10 @@ footer {
   </div>
 </div>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
+<footer aria-label="Rodapé">
   <a href="#" class="foot-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
   <p class="foot-copy">© 2026 Sanifase Lda. Todos os direitos reservados.</p>
   <div class="foot-links">
