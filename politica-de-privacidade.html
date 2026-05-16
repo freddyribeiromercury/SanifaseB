@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Sanifase</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --navy: #001845;
+  --blue: #1358C4;
+  --amber: #D4750A;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  --off: #F7F8FA;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--off); color: var(--navy); }
+
+/* NAV */
+nav {
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 72px;
+}
+.nav-logo img { height: 44px; filter: brightness(0) invert(1); }
+.nav-back {
+  color: rgba(255,255,255,.7); text-decoration: none;
+  font-size: 13px; font-weight: 500; letter-spacing: .06em;
+  display: flex; align-items: center; gap: 8px;
+  transition: color .2s;
+}
+.nav-back:hover { color: #fff; }
+
+/* HERO STRIP */
+.page-hero {
+  background: var(--navy);
+  padding: 60px 48px 80px;
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(19,88,196,.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-hero-inner { max-width: 800px; margin: 0 auto; position: relative; }
+.page-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: #93C5FD; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.page-label::before { content: ''; display: block; width: 32px; height: 1.5px; background: #93C5FD; }
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(40px, 5vw, 68px); font-weight: 900;
+  line-height: .95; letter-spacing: -.025em; color: #fff;
+  margin-bottom: 20px;
+}
+.page-meta { color: rgba(255,255,255,.4); font-size: 14px; font-weight: 300; }
+
+/* CONTENT */
+.content-wrap {
+  max-width: 800px; margin: 0 auto;
+  padding: 72px 48px 120px;
+}
+.prose h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px; font-weight: 900; letter-spacing: -.01em;
+  color: var(--navy); margin: 48px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p {
+  font-size: 16px; font-weight: 300; line-height: 1.8;
+  color: #334155; margin-bottom: 18px;
+}
+.prose ul {
+  list-style: none; margin-bottom: 18px; padding: 0;
+}
+.prose ul li {
+  font-size: 16px; font-weight: 300; line-height: 1.8;
+  color: #334155; padding: 6px 0 6px 20px;
+  position: relative;
+}
+.prose ul li::before {
+  content: ''; position: absolute; left: 0; top: 14px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue);
+}
+.prose a { color: var(--blue); text-decoration: underline; transition: opacity .2s; }
+.prose a:hover { opacity: .7; }
+.prose strong { font-weight: 600; color: var(--navy); }
+.info-box {
+  background: #EEF5FF; border-left: 3px solid var(--blue);
+  border-radius: 0 8px 8px 0; padding: 20px 24px;
+  margin: 28px 0;
+}
+.info-box p { margin: 0; font-size: 15px; color: var(--navy); }
+
+/* FOOTER */
+footer {
+  background: #000C26; padding: 32px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.foot-logo img { height: 34px; filter: brightness(0) invert(1); opacity: .55; }
+.foot-copy { color: rgba(255,255,255,.28); font-size: 13px; }
+.foot-link { color: rgba(255,255,255,.35); font-size: 12.5px; text-decoration: none; transition: color .2s; }
+.foot-link:hover { color: rgba(255,255,255,.8); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .page-hero { padding: 40px 20px 60px; }
+  .content-wrap { padding: 48px 20px 80px; }
+  footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M10 7H4M6 4l-3 3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Voltar ao site
+  </a>
+</nav>
+
+<!-- HERO STRIP -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-label">Documentos Legais</div>
+    <h1 class="page-title">Política de<br>Privacidade</h1>
+    <p class="page-meta">Última atualização: 16 de maio de 2026</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+  <div class="prose">
+
+    <div class="info-box">
+      <p>A sua privacidade é importante para nós. Esta política explica como a <strong>Sanifase Lda</strong> recolhe, utiliza e protege os seus dados pessoais, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) — Regulamento (UE) 2016/679.</p>
+    </div>
+
+    <h2>1. Responsável pelo Tratamento</h2>
+    <p><strong>Sanifase Lda</strong> é o responsável pelo tratamento dos dados pessoais recolhidos através deste website e dos meios de contacto disponibilizados.</p>
+    <p>Para qualquer questão relacionada com a proteção de dados, pode contactar-nos através dos nossos canais oficiais:</p>
+    <ul>
+      <li>Instagram: <a href="https://www.instagram.com/sanifase_/" target="_blank" rel="noopener">@sanifase_</a></li>
+      <li>Facebook: <a href="https://www.facebook.com/SaniFaseLda" target="_blank" rel="noopener">SaniFase Lda</a></li>
+    </ul>
+
+    <h2>2. Dados Pessoais Recolhidos</h2>
+    <p>Recolhemos apenas os dados necessários para responder aos seus pedidos e prestar os nossos serviços. Estes podem incluir:</p>
+    <ul>
+      <li><strong>Nome completo</strong> — para identificação no contacto</li>
+      <li><strong>Endereço de email</strong> — para envio de resposta ao seu pedido</li>
+      <li><strong>Número de telefone</strong> — para contacto direto, caso nos forneça</li>
+      <li><strong>Descrição do projeto ou questão</strong> — informação partilhada voluntariamente no formulário de contacto</li>
+    </ul>
+    <p>Não recolhemos dados sensíveis (saúde, origem étnica, opiniões políticas, etc.) nem dados de menores de 16 anos.</p>
+
+    <h2>3. Finalidade e Base Legal do Tratamento</h2>
+    <p>Os seus dados são tratados exclusivamente para as seguintes finalidades:</p>
+    <ul>
+      <li><strong>Resposta a pedidos de orçamento</strong> — base legal: execução de pré-contrato (art. 6.º, n.º 1, al. b) do RGPD)</li>
+      <li><strong>Resposta a questões e contactos gerais</strong> — base legal: interesse legítimo (art. 6.º, n.º 1, al. f) do RGPD)</li>
+      <li><strong>Cumprimento de obrigações legais</strong> — base legal: obrigação legal (art. 6.º, n.º 1, al. c) do RGPD)</li>
+    </ul>
+
+    <h2>4. Conservação dos Dados</h2>
+    <p>Os dados pessoais são conservados apenas pelo período necessário à finalidade para que foram recolhidos:</p>
+    <ul>
+      <li>Pedidos de orçamento e comunicações comerciais: até <strong>3 anos</strong> após o último contacto, salvo obrigação legal em contrário.</li>
+      <li>Dados de clientes com relação contratual estabelecida: até <strong>10 anos</strong>, em cumprimento das obrigações fiscais e contabilísticas.</li>
+    </ul>
+
+    <h2>5. Partilha com Terceiros</h2>
+    <p>A Sanifase não vende, cede nem partilha os seus dados pessoais com terceiros para fins comerciais. Podemos partilhar dados com:</p>
+    <ul>
+      <li><strong>Prestadores de serviços tecnológicos</strong> (alojamento web, email) — apenas na medida do estritamente necessário e sob contrato de subcontratante</li>
+      <li><strong>Autoridades competentes</strong> — quando exigido por lei ou ordem judicial</li>
+    </ul>
+
+    <h2>6. Transferências Internacionais</h2>
+    <p>Os seus dados são tratados preferencialmente em território da União Europeia. Caso algum prestador de serviços implique transferência para países terceiros, asseguraremos que existem garantias adequadas nos termos dos artigos 46.º e seguintes do RGPD (cláusulas contratuais-tipo ou decisão de adequação da Comissão Europeia).</p>
+
+    <h2>7. Os Seus Direitos</h2>
+    <p>Ao abrigo do RGPD, tem os seguintes direitos relativamente aos seus dados pessoais:</p>
+    <ul>
+      <li><strong>Acesso</strong> — saber quais os dados que conservamos sobre si</li>
+      <li><strong>Retificação</strong> — corrigir dados incorretos ou incompletos</li>
+      <li><strong>Apagamento</strong> — solicitar a eliminação dos seus dados ("direito ao esquecimento")</li>
+      <li><strong>Limitação</strong> — restringir o tratamento em determinadas circunstâncias</li>
+      <li><strong>Portabilidade</strong> — receber os seus dados num formato estruturado e legível por máquina</li>
+      <li><strong>Oposição</strong> — opor-se ao tratamento baseado em interesse legítimo</li>
+      <li><strong>Não sujeição a decisões automatizadas</strong> — não aplicamos decisões automatizadas com efeitos significativos</li>
+    </ul>
+    <p>Para exercer qualquer um destes direitos, contacte-nos através dos meios indicados na secção 1. Responderemos no prazo máximo de <strong>30 dias</strong>.</p>
+    <p>Tem ainda o direito de apresentar reclamação à autoridade de controlo nacional: <a href="https://www.cnpd.pt" target="_blank" rel="noopener">Comissão Nacional de Proteção de Dados (CNPD)</a>.</p>
+
+    <h2>8. Cookies e Tecnologias de Rastreio</h2>
+    <p>Este website não utiliza cookies de rastreio, publicidade ou análise de comportamento. Não são colocados cookies de terceiros sem o seu consentimento expresso.</p>
+    <p>Podemos utilizar cookies de sessão estritamente necessários ao funcionamento técnico do site, que não requerem consentimento nos termos do artigo 5.º, n.º 3 da Diretiva ePrivacy.</p>
+
+    <h2>9. Segurança</h2>
+    <p>Adotamos medidas técnicas e organizativas adequadas para proteger os seus dados pessoais contra acesso não autorizado, perda, destruição ou alteração, incluindo transmissão segura via HTTPS e controlo de acesso restrito aos sistemas internos.</p>
+
+    <h2>10. Alterações a Esta Política</h2>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações legais ou operacionais. A versão mais recente estará sempre disponível nesta página, com indicação da data de última atualização.</p>
+
+    <h2>11. Contacto</h2>
+    <p>Para qualquer questão sobre esta política ou sobre o tratamento dos seus dados pessoais, contacte-nos através dos nossos canais oficiais indicados na secção 1. Comprometemo-nos a responder com brevidade e transparência.</p>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="foot-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
+  <p class="foot-copy">© 2026 Sanifase Lda. Todos os direitos reservados.</p>
+  <a href="/" class="foot-link">← Voltar ao site</a>
+</footer>
+
+</body>
+</html>
