@@ -448,6 +448,69 @@ nav.solid {
 .gitem:hover::after { opacity: 1; }
 .gitem:nth-child(1) { grid-column: span 2; grid-row: span 2; }
 
+/* ──────────────── SCHEDULE ──────────────── */
+.schedule-sec {
+  padding: 100px 48px;
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px;
+  align-items: start;
+}
+.schedule-table { width: 100%; border-collapse: collapse; }
+.schedule-table tr {
+  border-bottom: 1px solid var(--border);
+  transition: background .18s;
+}
+.schedule-table tr:last-child { border-bottom: none; }
+.schedule-table tr:hover { background: #EEF5FF; }
+.schedule-table td {
+  padding: 16px 12px; font-size: 15px;
+}
+.sday {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 800; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--navy);
+  white-space: nowrap;
+}
+.sday-tag {
+  display: inline-block;
+  background: var(--navy); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 12px; border-radius: 4px;
+  white-space: nowrap;
+}
+.stime {
+  color: var(--muted); font-size: 14.5px; font-weight: 300;
+  text-align: right; white-space: nowrap;
+}
+.stime span {
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.stime-sep {
+  color: #CBD5E1; margin: 0 8px; font-size: 12px;
+}
+.sclosed {
+  color: #94A3B8; font-size: 14px; font-style: italic;
+  text-align: right;
+}
+.schedule-note {
+  margin-top: 24px; padding: 16px 20px;
+  background: #FFF4E6; border-left: 3px solid var(--amber);
+  border-radius: 0 8px 8px 0;
+  font-size: 13.5px; color: #92400E; font-weight: 400; line-height: 1.5;
+}
+
+/* Nav phone */
+.nav-phone {
+  color: rgba(255,255,255,.7); font-size: 13px; font-weight: 500;
+  text-decoration: none; letter-spacing: .02em;
+  display: flex; align-items: center; gap: 7px;
+  transition: color .2s;
+}
+.nav-phone:hover { color: #fff; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+
 /* ──────────────── BRANDS ──────────────── */
 .brands-sec {
   background: #EEF2FA;
@@ -632,6 +695,8 @@ footer {
   .gallery-sec { padding: 0 24px 80px; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gitem:nth-child(1) { grid-column: span 2; height: 260px; }
+  .schedule-sec { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+  .stime { font-size: 13px; }
   .cta-full { padding: 100px 24px; }
   .contact-sec { grid-template-columns: 1fr; padding: 80px 24px; }
   footer { padding: 28px 24px; flex-direction: column; text-align: center; }
@@ -647,9 +712,16 @@ footer {
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#sobre">Sobre Nós</a></li>
     <li><a href="#showroom">Showroom</a></li>
+    <li><a href="#horario">Horário</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Pedir Orçamento</a>
+  <div class="nav-right">
+    <a href="tel:+351918532497" class="nav-phone">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+      +351 918 532 497
+    </a>
+    <a href="#contacto" class="nav-cta">Pedir Orçamento</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -902,6 +974,61 @@ footer {
   </div>
 </div>
 
+<!-- SCHEDULE -->
+<div class="schedule-sec" id="horario">
+  <div>
+    <div class="sec-label fade-up">Estamos Abertos</div>
+    <h2 class="sec-h fade-up d1">Horário<br>de Funcionamento.</h2>
+    <p class="sec-p fade-up d2" style="margin-top:16px">
+      Visite-nos no nosso showroom ou ligue-nos para esclarecer qualquer dúvida antes de nos visitar.
+    </p>
+    <div class="contact-detail fade-up d3" style="margin-top:40px">
+      <div class="ci">📞</div>
+      <div class="ct">
+        <h4>Telefone</h4>
+        <a href="tel:+351918532497" style="font-size:18px;font-weight:600;color:var(--navy)">+351 918 532 497</a>
+      </div>
+    </div>
+  </div>
+  <div class="fade-up d1">
+    <table class="schedule-table">
+      <tbody>
+        <tr>
+          <td><span class="sday-tag">Segunda-feira</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 19:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag">Terça-feira</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 19:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag">Quarta-feira</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 19:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag">Quinta-feira</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 19:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag">Sexta-feira</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 19:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag">Sábado</span></td>
+          <td class="stime"><span>08:00h – 12:00h</span><span class="stime-sep">|</span><span>14:00h – 18:00h</span></td>
+        </tr>
+        <tr>
+          <td><span class="sday-tag" style="background:#94A3B8">Domingo</span></td>
+          <td class="sclosed">Encerrado</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="schedule-note">
+      ⏰ Horário sujeito a alterações em feriados nacionais e municipais.
+    </div>
+  </div>
+</div>
+
 <!-- CTA FULL -->
 <section class="cta-full">
   <div class="cta-inner">
@@ -939,6 +1066,13 @@ footer {
     <p style="color:var(--muted);font-size:16px;line-height:1.75;font-weight:300;margin:20px 0 52px;max-width:380px" class="fade-up d2">
       Estamos prontos para o aconselhar e apresentar a melhor solução para o seu projeto — residencial ou industrial.
     </p>
+    <div class="contact-detail fade-up d2">
+      <div class="ci">📞</div>
+      <div class="ct">
+        <h4>Telefone</h4>
+        <a href="tel:+351918532497">+351 918 532 497</a>
+      </div>
+    </div>
     <div class="contact-detail fade-up d2">
       <div class="ci">📱</div>
       <div class="ct">
