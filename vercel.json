@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "X-Frame-Options",
@@ -17,7 +17,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
         },
         {
           "key": "Content-Security-Policy",
@@ -30,24 +30,6 @@
         {
           "key": "Cross-Origin-Opener-Policy",
           "value": "same-origin"
-        }
-      ]
-    },
-    {
-      "source": "/:path.(png|jpe?g|gif|svg|ico|woff2?|ttf)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/:path.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
         }
       ]
     }
