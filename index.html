@@ -724,16 +724,17 @@ nav.solid {
 }
 .form-btn {
   width: 100%; padding: 17px;
-  background: var(--navy); color: #fff;
+  background: #25D366; color: #fff;
   border: none; border-radius: 8px;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 18px; font-weight: 700; letter-spacing: .06em;
   text-transform: uppercase; cursor: pointer;
   transition: all .22s; margin-top: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 .form-btn:hover {
-  background: var(--blue); transform: translateY(-1px);
-  box-shadow: 0 10px 32px rgba(19,88,196,.35);
+  background: #1ebe5b; transform: translateY(-1px);
+  box-shadow: 0 10px 32px rgba(37,211,102,.4);
 }
 
 /* ──────────────── FOOTER ──────────────── */
@@ -1226,6 +1227,13 @@ footer {
       </div>
     </div>
     <div class="contact-detail fade-up d2">
+      <div class="ci">✉️</div>
+      <div class="ct">
+        <h4>Email</h4>
+        <a href="mailto:info.sanifase@gmail.com">info.sanifase@gmail.com</a>
+      </div>
+    </div>
+    <div class="contact-detail fade-up d2">
       <div class="ci">📱</div>
       <div class="ct">
         <h4>Instagram</h4>
@@ -1256,25 +1264,34 @@ footer {
     </div>
   </div>
 
-  <div class="contact-form fade-up d2">
+  <form class="contact-form fade-up d2" id="contact-form" novalidate>
+
     <div class="form-h">Envie uma mensagem</div>
+
+    <div id="form-success" style="display:none; background:#EAFAF1; border-left:3px solid #2D6A4F; border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:24px; color:#1B4332; font-size:14px; font-weight:500;">
+      ✓ O WhatsApp foi aberto com a sua mensagem! Se não abriu automaticamente, contacte-nos pelo +351 918 532 497.
+    </div>
+    <div id="form-error" style="display:none; background:#FEF2F2; border-left:3px solid #EF4444; border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:24px; color:#991B1B; font-size:14px; font-weight:500;">
+      Por favor preencha o nome e o email antes de enviar.
+    </div>
+
     <div class="form-row">
       <div class="fg">
-        <label>Nome</label>
-        <input type="text" placeholder="O seu nome completo">
+        <label for="f-nome">Nome</label>
+        <input id="f-nome" type="text" name="name" placeholder="O seu nome completo" required>
       </div>
       <div class="fg">
-        <label>Telefone</label>
-        <input type="tel" placeholder="+351 000 000 000">
+        <label for="f-tel">Telefone</label>
+        <input id="f-tel" type="tel" name="phone" placeholder="+351 000 000 000">
       </div>
     </div>
     <div class="fg">
-      <label>Email</label>
-      <input type="email" placeholder="email@exemplo.com">
+      <label for="f-email">Email</label>
+      <input id="f-email" type="email" name="email" placeholder="email@exemplo.com" required>
     </div>
     <div class="fg">
-      <label>Serviço de Interesse</label>
-      <select>
+      <label for="f-servico">Serviço de Interesse</label>
+      <select id="f-servico" name="service">
         <option value="">Selecionar serviço...</option>
         <option>Climatização — Ar Condicionado</option>
         <option>Climatização — Bomba de Calor</option>
@@ -1287,11 +1304,14 @@ footer {
       </select>
     </div>
     <div class="fg">
-      <label>Mensagem</label>
-      <textarea rows="4" placeholder="Descreva o seu projeto, espaço ou dúvida..."></textarea>
+      <label for="f-msg">Mensagem</label>
+      <textarea id="f-msg" name="message" rows="4" placeholder="Descreva o seu projeto, espaço ou dúvida..."></textarea>
     </div>
-    <button type="submit" class="form-btn">Enviar Mensagem →</button>
-  </div>
+    <button type="submit" class="form-btn" id="form-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar via WhatsApp
+    </button>
+  </form>
 </div>
 
 </main>
@@ -1327,6 +1347,37 @@ setTimeout(() => {
     if (r.top < window.innerHeight) el.classList.add('in');
   });
 }, 100);
+
+// Contact form → WhatsApp
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successEl = document.getElementById('form-success');
+  const errorEl  = document.getElementById('form-error');
+  successEl.style.display = 'none';
+  errorEl.style.display   = 'none';
+
+  const name    = document.getElementById('f-nome').value.trim();
+  const phone   = document.getElementById('f-tel').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-servico').value;
+  const message = document.getElementById('f-msg').value.trim();
+
+  if (!name || !email) {
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  let text = `Olá Sanifase! 👋\n\n*Pedido de contacto pelo website:*\n\n`;
+  text += `*Nome:* ${name}\n`;
+  if (phone)   text += `*Telefone:* ${phone}\n`;
+  text += `*Email:* ${email}\n`;
+  if (service) text += `*Serviço:* ${service}\n`;
+  if (message) text += `\n*Mensagem:*\n${message}`;
+
+  window.open(`https://wa.me/351918532497?text=${encodeURIComponent(text)}`, '_blank');
+  successEl.style.display = 'block';
+  this.reset();
+});
 </script>
 </body>
 </html>
