@@ -36,20 +36,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- JSON-LD: LocalBusiness -->
+<!-- JSON-LD: LocalBusiness (GEO enhanced) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "Store"],
+  "@id": "https://www.sanifase.pt/#business",
   "name": "Sanifase Lda",
-  "description": "Loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico em Portugal. Instalação de equipamentos incluída.",
+  "alternateName": "Sanifase",
+  "description": "Loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico em Baião, Portugal. Mais de 35 anos de experiência. Instalação de equipamentos incluída.",
+  "slogan": "A sua casa, mais eficiente.",
   "url": "https://www.sanifase.pt",
-  "logo": "https://www.sanifase.pt/logo_completo_highres.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.sanifase.pt/logo_completo_highres.png"
+  },
   "image": "https://www.sanifase.pt/logo_completo_highres.png",
   "telephone": "+351918532497",
+  "email": "info.sanifase@gmail.com",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card",
+  "paymentAccepted": "Cash, Credit Card, Multibanco",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Central da Portela, N.º 707",
+    "addressLocality": "Gove",
+    "addressRegion": "Baião",
+    "addressCountry": "PT"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Baião"},
+    {"@type": "AdministrativeArea", "name": "Porto"},
+    {"@type": "AdministrativeArea", "name": "Norte de Portugal"}
+  ],
+  "knowsAbout": [
+    "Ar condicionado",
+    "Bombas de calor",
+    "Climatização residencial e comercial",
+    "Instalação de equipamentos AVAC",
+    "Canalização e bombagem",
+    "Material elétrico",
+    "Tijoleiras e revestimentos",
+    "Tintas e vernizes",
+    "Aquecimento",
+    "Ferramentas profissionais"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+351918532497",
+    "email": "info.sanifase@gmail.com",
+    "contactType": "customer service",
+    "availableLanguage": {"@type": "Language", "name": "Portuguese"}
+  },
   "sameAs": [
     "https://www.instagram.com/sanifase_/",
     "https://www.facebook.com/SaniFaseLda"
@@ -82,16 +120,162 @@
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Produtos e Serviços",
+    "name": "Produtos e Serviços Sanifase",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ar Condicionado e Instalação"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bombas de Calor"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Tijoleiras e Revestimentos"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Tintas e Vernizes"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Material de Canalização"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Material Elétrico"}}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Instalação de Ar Condicionado",
+          "description": "Fornecimento e instalação de sistemas de ar condicionado split, multi-split e VRF para habitação e comércio. Marca principal: Daikin."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bombas de Calor",
+          "description": "Soluções de aquecimento e arrefecimento de alta eficiência para água sanitária e climatização de espaços residenciais e comerciais."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tijoleiras e Revestimentos",
+          "description": "Vasta seleção de tijoleiras e revestimentos para pavimento e parede, interiores e exteriores. Marca: Joval."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Tintas e Vernizes",
+          "description": "Tintas para interior e exterior, primários, vernizes e produtos de preparação de superfícies."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Material de Canalização",
+          "description": "Bombas submersíveis, vasos de expansão, tubagens PP-R e PVC, e acessórios de rega e abastecimento. Marca: Grundfos."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Material Elétrico",
+          "description": "Tomadas, interruptores, quadros elétricos e automatismos domésticos. Marca principal: Efapel."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Aquecimento — Termoacumuladores e Esquentadores",
+          "description": "Termoacumuladores, esquentadores e caldeiras a gás para água quente sanitária com máxima eficiência energética."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "Ferramentas Profissionais",
+          "description": "Ferramentas elétricas e manuais de marcas profissionais: DeWalt, Stanley e Bosch."
+        }
+      }
     ]
   }
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é a Sanifase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sanifase é uma loja especializada localizada em Gove, Baião, Portugal, com mais de 35 anos de experiência. Vende e instala ar condicionado, bombas de calor, tijoleiras, tintas, canalização, material elétrico e ferramentas profissionais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Onde fica a Sanifase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sanifase está localizada na Rua Central da Portela, N.º 707, Gove, Baião, Portugal. Contacto: +351 918 532 497 ou info.sanifase@gmail.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Sanifase faz instalação de ar condicionado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A Sanifase fornece e instala sistemas de ar condicionado split, multi-split e VRF para habitação e comércio. A instalação é realizada pela própria equipa técnica da loja, incluindo a marca Daikin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual o horário de funcionamento da Sanifase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sanifase está aberta de segunda a sexta-feira das 08:00 às 12:00 e das 14:00 às 19:00, e ao sábado das 08:00 às 12:00 e das 14:00 às 18:00. Encerra ao domingo e em feriados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como contactar a Sanifase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode contactar a Sanifase por telefone ou WhatsApp no +351 918 532 497, por email em info.sanifase@gmail.com, ou através do formulário de contacto em sanifase.pt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais as marcas que a Sanifase representa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sanifase representa marcas como Daikin (ar condicionado), Joval (tijoleiras), Efapel (material elétrico), Grundfos (bombas e canalização), DeWalt, Stanley e Bosch (ferramentas profissionais)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Sanifase vende bombas de calor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A Sanifase comercializa e instala bombas de calor para aquecimento de água sanitária e climatização de espaços residenciais e comerciais com alta eficiência energética."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Sanifase tem showroom?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A Sanifase dispõe de um showroom físico em Gove, Baião, onde pode ver e experimentar os produtos em exposição: ar condicionado, tijoleiras, material elétrico, ferramentas e mais."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.sanifase.pt/#website",
+  "url": "https://www.sanifase.pt",
+  "name": "Sanifase",
+  "description": "Website oficial da Sanifase Lda — loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico em Baião, Portugal.",
+  "publisher": {"@id": "https://www.sanifase.pt/#business"},
+  "inLanguage": "pt-PT"
 }
 </script>
 <style>
@@ -148,15 +332,15 @@ nav.solid {
 }
 .nav-links a:hover { color: #fff; }
 .nav-cta {
-  background: var(--amber); color: #fff;
+  background: #AD5500; color: #fff;
   padding: 10px 26px; border-radius: 3px;
   font-size: 12.5px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
   text-decoration: none;
   transition: background .2s, transform .2s;
-  box-shadow: 0 4px 20px rgba(212,117,10,.4);
+  box-shadow: 0 4px 20px rgba(173,85,0,.4);
 }
-.nav-cta:hover { background: var(--amber-l); transform: translateY(-1px); }
+.nav-cta:hover { background: #8F4600; transform: translateY(-1px); }
 
 /* ──────────────── HERO ──────────────── */
 .hero {
@@ -226,15 +410,15 @@ nav.solid {
 }
 .hero-btns { display: flex; gap: 20px; align-items: center; }
 .btn-hero {
-  background: var(--amber); color: #fff;
+  background: #AD5500; color: #fff;
   padding: 17px 40px; border-radius: 4px;
   font-size: 14px; font-weight: 700; letter-spacing: .06em;
   text-decoration: none; text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 10px;
   transition: all .22s;
-  box-shadow: 0 8px 36px rgba(212,117,10,.4);
+  box-shadow: 0 8px 36px rgba(173,85,0,.4);
 }
-.btn-hero:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(212,117,10,.55); background: var(--amber-l); }
+.btn-hero:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(173,85,0,.55); background: #8F4600; }
 .btn-hero-ghost {
   color: rgba(255,255,255,.65); text-decoration: none;
   font-size: 13.5px; font-weight: 500;
@@ -461,7 +645,7 @@ nav.solid {
   background: rgba(19,88,196,.2);
   border: 1px solid rgba(19,88,196,.3);
 }
-.feat-txt h4 { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.feat-txt h3 { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 4px; }
 .feat-txt p { color: rgba(255,255,255,.45); font-size: 13px; line-height: 1.5; }
 
 /* ──────────────── COUNTER SHOWCASE ──────────────── */
@@ -605,7 +789,7 @@ nav.solid {
 .brands-label {
   text-align: center;
   font-size: 11px; font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; color: #94A3B8; margin-bottom: 48px;
+  text-transform: uppercase; color: #3E5470; margin-bottom: 48px;
 }
 .brands-row {
   display: flex; justify-content: center; align-items: center;
@@ -614,7 +798,7 @@ nav.solid {
 .brand-name {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 30px; font-weight: 800; letter-spacing: .06em;
-  text-transform: uppercase; color: #9DAEC8;
+  text-transform: uppercase; color: #637FA0;
   transition: color .2s;
 }
 .brand-name:hover { color: var(--navy); }
@@ -674,7 +858,7 @@ nav.solid {
   display: flex; align-items: center; justify-content: center;
   font-size: 22px;
 }
-.ct h4 {
+.ct h3 {
   font-size: 11px; font-weight: 700; letter-spacing: .12em;
   text-transform: uppercase; color: var(--blue); margin-bottom: 5px;
 }
@@ -744,10 +928,10 @@ footer {
   flex-wrap: wrap; gap: 20px;
 }
 .foot-logo img { height: 36px; filter: brightness(0) invert(1); opacity: .6; }
-.foot-copy { color: rgba(255,255,255,.28); font-size: 13px; }
+.foot-copy { color: rgba(255,255,255,.60); font-size: 13px; }
 .foot-links { display: flex; gap: 28px; }
 .foot-links a {
-  color: rgba(255,255,255,.35); font-size: 12.5px;
+  color: rgba(255,255,255,.60); font-size: 12.5px;
   letter-spacing: .06em; text-decoration: none;
   text-transform: uppercase; transition: color .2s;
 }
@@ -1032,21 +1216,21 @@ footer {
         <div class="feat">
           <div class="feat-ico">🏗️</div>
           <div class="feat-txt">
-            <h4>Instalação de Equipamentos Incluída</h4>
+            <h3>Instalação de Equipamentos Incluída</h3>
             <p>Não vendemos e ficamos por aqui — montamos e instalamos tudo o que adquire</p>
           </div>
         </div>
         <div class="feat">
           <div class="feat-ico">🏆</div>
           <div class="feat-txt">
-            <h4>Gama Alargada e Única</h4>
+            <h3>Gama Alargada e Única</h3>
             <p>Tijoleiras, tintas, ar condicionado e bombas de calor — tudo num só espaço</p>
           </div>
         </div>
         <div class="feat">
           <div class="feat-ico">🎯</div>
           <div class="feat-txt">
-            <h4>Aconselhamento Técnico Especializado</h4>
+            <h3>Aconselhamento Técnico Especializado</h3>
             <p>Equipa formada para guiar a sua escolha com rigor e honestidade</p>
           </div>
         </div>
@@ -1138,7 +1322,7 @@ footer {
     <div class="contact-detail fade-up d3" style="margin-top:40px">
       <div class="ci">📞</div>
       <div class="ct">
-        <h4>Telefone</h4>
+        <h3>Telefone</h3>
         <a href="tel:+351918532497" style="font-size:18px;font-weight:600;color:var(--navy)">+351 918 532 497</a>
       </div>
     </div>
@@ -1222,42 +1406,42 @@ footer {
     <div class="contact-detail fade-up d2">
       <div class="ci">📞</div>
       <div class="ct">
-        <h4>Telefone</h4>
+        <h3>Telefone</h3>
         <a href="tel:+351918532497">+351 918 532 497</a>
       </div>
     </div>
     <div class="contact-detail fade-up d2">
       <div class="ci">✉️</div>
       <div class="ct">
-        <h4>Email</h4>
+        <h3>Email</h3>
         <a href="mailto:info.sanifase@gmail.com">info.sanifase@gmail.com</a>
       </div>
     </div>
     <div class="contact-detail fade-up d2">
       <div class="ci">📱</div>
       <div class="ct">
-        <h4>Instagram</h4>
+        <h3>Instagram</h3>
         <a href="https://www.instagram.com/sanifase_/" target="_blank" rel="noopener">@sanifase_</a>
       </div>
     </div>
     <div class="contact-detail fade-up d3">
       <div class="ci">💬</div>
       <div class="ct">
-        <h4>Facebook</h4>
+        <h3>Facebook</h3>
         <a href="https://www.facebook.com/SaniFaseLda" target="_blank" rel="noopener">SaniFase Lda</a>
       </div>
     </div>
     <div class="contact-detail fade-up d3">
       <div class="ci">📍</div>
       <div class="ct">
-        <h4>Morada</h4>
+        <h3>Morada</h3>
         <a href="https://www.google.com/maps/search/Rua+central+da+portela+N707+Gove+Baião" target="_blank" rel="noopener noreferrer">Rua Central da Portela, N.º 707<br>Gove, Baião</a>
       </div>
     </div>
     <div class="contact-detail fade-up d4">
       <div class="ci">🏪</div>
       <div class="ct">
-        <h4>Showroom</h4>
+        <h3>Showroom</h3>
         <p>Visite-nos pessoalmente e experimente os produtos</p>
       </div>
     </div>
