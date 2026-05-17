@@ -1,5 +1,14 @@
 screenshot-*.png
+*.png~
 .playwright-mcp/
 *.log
 .DS_Store
 node_modules/
+axe-*.json
+whatsapp-form.png
+logo-check*.png
+logo-viewport.png
+a11y-*.png
+a11y-*.jpeg
+.env
+.env.*
