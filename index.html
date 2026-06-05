@@ -1019,7 +1019,9 @@ footer {
   border-radius: 16px;
   border: 1px solid var(--border);
   overflow: hidden;
+  position: relative;
   transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;
+  cursor: pointer;
 }
 .cat-card:hover {
   transform: translateY(-8px);
@@ -1049,6 +1051,9 @@ footer {
   letter-spacing: .08em; text-transform: uppercase;
   text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
   transition: gap .2s;
+}
+.cat-link::after {
+  content: ''; position: absolute; inset: 0;
 }
 .cat-link:hover { gap: 14px; }
 
