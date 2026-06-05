@@ -2,7 +2,7 @@
 <html lang="pt-PT" style="background:#001845">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#001845">
 <meta name="color-scheme" content="dark">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
@@ -310,9 +310,12 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 48px;
-  height: 72px;
-  transition: background .35s, box-shadow .35s, height .35s;
+  padding: env(safe-area-inset-top, 0px) 48px 0;
+  min-height: calc(72px + env(safe-area-inset-top, 0px));
+  height: auto;
+  background: rgba(0,24,69,.75);
+  backdrop-filter: blur(24px);
+  transition: background .35s, box-shadow .35s;
 }
 nav.solid {
   background: rgba(0,24,69,.97);
@@ -1052,7 +1055,7 @@ footer {
 /* ──────────────── RESPONSIVE ──────────────── */
 @media (max-width:900px) {
   /* NAV */
-  nav { padding: 0 16px; height: 64px; background: rgba(0,24,69,.97); backdrop-filter: blur(24px); }
+  nav { padding: env(safe-area-inset-top, 0px) 16px 0; min-height: calc(64px + env(safe-area-inset-top, 0px)); height: auto; background: rgba(0,24,69,.97); backdrop-filter: blur(24px); }
   .nav-links { display: none; }
   .nav-phone { display: none; }
   .nav-burger { display: flex; }
