@@ -9,12 +9,19 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Primary SEO -->
-<title>Sanifase — Ar Condicionado, Tijoleiras, Tintas, Canalização e Material Elétrico</title>
-<meta name="description" content="A Sanifase é a sua loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico. Instalação de equipamentos incluída. Contacte-nos: +351 918 532 497.">
+<title>Sanifase — Ar Condicionado, Tijoleiras e Materiais de Construção em Baião</title>
+<meta name="description" content="Loja em Baião especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico. Mais de 35 anos de experiência. Instalação incluída. ☎ +351 918 532 497.">
 <meta name="keywords" content="ar condicionado, bombas de calor, tijoleiras, tintas, canalização, material elétrico, climatização, instalação ar condicionado, aquecimento, ferramentas, Sanifase, loja materiais construção">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Sanifase Lda">
 <link rel="canonical" href="https://www.sanifase.pt/">
+<meta name="application-name" content="Sanifase">
+<meta name="apple-mobile-web-app-title" content="Sanifase">
+<meta name="geo.region" content="PT-13">
+<meta name="geo.placename" content="Baião, Portugal">
+<meta name="geo.position" content="41.1550;-8.0310">
+<meta name="ICBM" content="41.1550, -8.0310">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -24,6 +31,9 @@
 <meta property="og:image" content="https://www.sanifase.pt/logo_completo_highres.png">
 <meta property="og:locale" content="pt_PT">
 <meta property="og:site_name" content="Sanifase">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sanifase — Loja especializada em materiais de construção e climatização em Baião, Portugal">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -38,6 +48,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+<!-- Preload LCP image -->
+<link rel="preload" as="image" href="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(5).jpeg" fetchpriority="high">
 
 <!-- JSON-LD: LocalBusiness (GEO enhanced) -->
 <script type="application/ld+json">
@@ -96,6 +109,13 @@
     "https://www.instagram.com/sanifase_/",
     "https://www.facebook.com/SaniFaseLda"
   ],
+  "foundingDate": "1990",
+  "hasMap": "https://www.google.com/maps/search/Rua+central+de+portela+N707+Gove+Baião",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.155,
+    "longitude": -8.031
+  },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -279,7 +299,38 @@
   "name": "Sanifase",
   "description": "Website oficial da Sanifase Lda — loja especializada em ar condicionado, bombas de calor, tijoleiras, tintas, canalização e material elétrico em Baião, Portugal.",
   "publisher": {"@id": "https://www.sanifase.pt/#business"},
-  "inLanguage": "pt-PT"
+  "inLanguage": "pt-PT",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.sanifase.pt/categoria.html?cat={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- JSON-LD: ItemList (categorias de produtos) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Categorias de Produtos Sanifase",
+  "description": "Todas as categorias de produtos disponíveis na loja Sanifase em Baião, Portugal",
+  "url": "https://www.sanifase.pt/#servicos",
+  "numberOfItems": 9,
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Canalização", "url": "https://www.sanifase.pt/categoria.html?cat=canalizacao", "description": "Tubagens PP-R e PVC, bombas submersíveis, vasos de expansão e acessórios de abastecimento de água"},
+    {"@type": "ListItem", "position": 2, "name": "Casa de Banho", "url": "https://www.sanifase.pt/categoria.html?cat=casa-de-banho", "description": "Lavatórios, sanitas, bases de duche, banheiras e acessórios de instalação sanitária"},
+    {"@type": "ListItem", "position": 3, "name": "Climatização", "url": "https://www.sanifase.pt/categoria.html?cat=climatizacao", "description": "Ar condicionado, bombas de calor e ventilação com instalação incluída"},
+    {"@type": "ListItem", "position": 4, "name": "Construção", "url": "https://www.sanifase.pt/categoria.html?cat=construcao", "description": "Tijoleiras, argamassas, cimentos e materiais de revestimento para obra residencial e comercial"},
+    {"@type": "ListItem", "position": 5, "name": "Drogaria e Tintas", "url": "https://www.sanifase.pt/categoria.html?cat=drogaria-e-tintas", "description": "Tintas, vernizes, primários e produtos de preparação de superfícies para interior e exterior"},
+    {"@type": "ListItem", "position": 6, "name": "Eletricidade", "url": "https://www.sanifase.pt/categoria.html?cat=eletricidade", "description": "Quadros elétricos, tomadas, interruptores, painéis fotovoltaicos e material de instalação"},
+    {"@type": "ListItem", "position": 7, "name": "Ferramentas", "url": "https://www.sanifase.pt/categoria.html?cat=ferramentas", "description": "Ferramentas elétricas e manuais DeWalt, Stanley, Bosch e outras marcas profissionais"},
+    {"@type": "ListItem", "position": 8, "name": "Piscinas", "url": "https://www.sanifase.pt/categoria.html?cat=piscinas", "description": "Bombas, filtros, tratamento de água e acessórios para piscinas particulares e comerciais"},
+    {"@type": "ListItem", "position": 9, "name": "Rega e Jardim", "url": "https://www.sanifase.pt/categoria.html?cat=rega-e-jardim", "description": "Aspersores, tubagens, controladores automáticos e equipamentos de rega para jardim"}
+  ]
 }
 </script>
 <style>
@@ -1084,6 +1135,10 @@ footer {
   .hero-btns { flex-wrap: wrap; gap: 14px; }
   .btn-hero { justify-content: center; }
 
+  /* BODY BACKGROUND: dark on mobile so iOS Safari browser chrome never appears white */
+  body { background: var(--navy); }
+  .sec, .counter-sec, .gallery-sec, .schedule-sec, .contact-sec { background: var(--off); }
+
   /* SECTIONS */
   .sec { padding: 60px 20px; }
   .sec-h { font-size: clamp(34px, 8vw, 52px); }
@@ -1215,7 +1270,7 @@ footer {
 
 <!-- NAV -->
 <nav id="nav" aria-label="Navegação principal">
-  <a href="#" class="nav-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
+  <a href="/" class="nav-logo"><img src="/logo_completo_highres.png" alt="Sanifase — Materiais de Construção em Baião"></a>
   <ul class="nav-links">
     <li class="nav-has-dd">
       <button class="nav-dd-btn" aria-haspopup="true" aria-expanded="false">
@@ -1345,7 +1400,7 @@ footer {
     </div>
     <div class="hero-photos fade-up d2">
       <div class="hphoto hp1">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(5).jpeg" alt="Showroom Sanifase — exposição de ar condicionado, bombas de calor e aquecimento">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(5).jpeg" alt="Showroom Sanifase em Gove, Baião — exposição de ar condicionado, bombas de calor e aquecimento" fetchpriority="high">
       </div>
       <div class="hphoto hp2">
         <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(8).jpeg" alt="Balcão de atendimento Sanifase com logótipo iluminado">
@@ -1380,7 +1435,7 @@ footer {
 </div>
 
 <!-- CATEGORIES -->
-<div class="sec" id="servicos">
+<section class="sec" id="servicos" aria-label="Categorias de Produtos">
   <div class="sec-label fade-up">As Nossas Categorias</div>
   <h2 class="sec-h fade-up d1">9 categorias.<br>Uma só loja.</h2>
   <p class="sec-p fade-up d2">Da canalização ao jardim, da eletricidade às piscinas — encontra tudo o que precisa para a sua obra ou projeto num único espaço.</p>
@@ -1391,7 +1446,7 @@ footer {
         <img src="/Artigos/canaliza%C3%A7%C3%A3o/H1_E9lBXJ2tTI.jpg" alt="Canalização" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Canalização</div>
+        <h3 class="cat-name">Canalização</h3>
         <p class="cat-desc">Tubagens PP-R e PVC, bombas submersíveis, vasos de expansão e acessórios de abastecimento de água.</p>
         <a href="/categoria.html?cat=canalizacao" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1401,7 +1456,7 @@ footer {
         <img src="/Artigos/casa%20de%20banho/H1_plato-de-ducha-calacatta-gold.jpg" alt="Casa de Banho" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Casa de Banho</div>
+        <h3 class="cat-name">Casa de Banho</h3>
         <p class="cat-desc">Lavatórios, sanitas, bases de duche, banheiras e acessórios de instalação sanitária das melhores marcas.</p>
         <a href="/categoria.html?cat=casa-de-banho" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1411,7 +1466,7 @@ footer {
         <img src="/Artigos/climatiza%C3%A7%C3%A3o/H1_ARncS0m.jpg" alt="Climatização" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Climatização</div>
+        <h3 class="cat-name">Climatização</h3>
         <p class="cat-desc">Ar condicionado, bombas de calor e ventilação — com instalação realizada pela nossa equipa técnica.</p>
         <a href="/categoria.html?cat=climatizacao" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1421,7 +1476,7 @@ footer {
         <img src="/Artigos/constru%C3%A7%C3%A3o/H1_qoS80fK.jpg" alt="Construção" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Construção</div>
+        <h3 class="cat-name">Construção</h3>
         <p class="cat-desc">Tijoleiras, argamassas, cimentos e materiais de revestimento para obra residencial e comercial.</p>
         <a href="/categoria.html?cat=construcao" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1431,7 +1486,7 @@ footer {
         <img src="/Artigos/drogaria%20e%20tintas/H1_G7XQfZggb_.jpg" alt="Drogaria e Tintas" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Drogaria e Tintas</div>
+        <h3 class="cat-name">Drogaria e Tintas</h3>
         <p class="cat-desc">Tintas, vernizes, primários e produtos de preparação de superfícies para interior e exterior.</p>
         <a href="/categoria.html?cat=drogaria-e-tintas" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1441,7 +1496,7 @@ footer {
         <img src="/Artigos/eletricidade/H1_paineis_fotovoltaicos_01.jpg" alt="Eletricidade" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Eletricidade</div>
+        <h3 class="cat-name">Eletricidade</h3>
         <p class="cat-desc">Quadros elétricos, tomadas, interruptores, painéis fotovoltaicos e material de instalação.</p>
         <a href="/categoria.html?cat=eletricidade" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1451,7 +1506,7 @@ footer {
         <img src="/Artigos/ferramentas/H1_Stanley.jpg" alt="Ferramentas" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Ferramentas</div>
+        <h3 class="cat-name">Ferramentas</h3>
         <p class="cat-desc">Ferramentas elétricas e manuais DeWalt, Stanley, Bosch e outras marcas profissionais para obra.</p>
         <a href="/categoria.html?cat=ferramentas" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1461,7 +1516,7 @@ footer {
         <img src="/Artigos/piscinas/H1_PISCINA-ILUMINADA.webp" alt="Piscinas" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Piscinas</div>
+        <h3 class="cat-name">Piscinas</h3>
         <p class="cat-desc">Bombas, filtros, tratamento de água e acessórios para piscinas particulares e comerciais.</p>
         <a href="/categoria.html?cat=piscinas" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
@@ -1471,26 +1526,26 @@ footer {
         <img src="/Artigos/rega%20e%20jardim/H1_aspersores.jpg" alt="Rega e Jardim" loading="lazy">
       </div>
       <div class="cat-body">
-        <div class="cat-name">Rega e Jardim</div>
+        <h3 class="cat-name">Rega e Jardim</h3>
         <p class="cat-desc">Aspersores, tubagens, controladores automáticos e equipamentos de rega para jardim e espaços verdes.</p>
         <a href="/categoria.html?cat=rega-e-jardim" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ABOUT -->
 <section class="about-wrap" id="sobre">
   <div class="about-inner">
     <div class="about-imgs fade-up">
       <div class="aimg">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(4).jpeg" alt="Interior Sanifase">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(4).jpeg" alt="Interior do showroom Sanifase em Gove, Baião — materiais de construção e climatização">
       </div>
       <div class="aimg">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(6).jpeg" alt="Joval display">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(6).jpeg" alt="Exposição de tijoleiras e revestimentos Joval na Sanifase em Baião">
       </div>
       <div class="aimg">
-        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(7).jpeg" alt="Ferramentas balcão">
+        <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(7).jpeg" alt="Balcão de ferramentas profissionais e materiais de obra na Sanifase">
       </div>
     </div>
     <div class="about-txt">
@@ -1552,7 +1607,7 @@ footer {
 </div>
 
 <!-- GALLERY -->
-<div class="gallery-sec" id="showroom">
+<section class="gallery-sec" id="showroom" aria-label="Showroom">
   <div class="gallery-head">
     <div>
       <div class="sec-label fade-up">Showroom</div>
@@ -1565,25 +1620,25 @@ footer {
   </div>
   <div class="gallery-grid fade-up d1">
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(1).jpeg" alt="Showroom">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(1).jpeg" alt="Vista geral do showroom Sanifase em Gove, Baião">
     </div>
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(2).jpeg" alt="Bombas e vasos de expansão">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(2).jpeg" alt="Bombas submersíveis e vasos de expansão Grundfos no showroom Sanifase">
     </div>
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.31.jpeg" alt="Ferramentas e produtos">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.31.jpeg" alt="Ferramentas profissionais DeWalt, Stanley e Bosch na Sanifase Baião">
     </div>
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(8).jpeg" alt="Balcão Sanifase">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(8).jpeg" alt="Balcão de atendimento Sanifase com logótipo iluminado em Gove, Baião">
     </div>
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(7).jpeg" alt="Balcão ferramentas">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(7).jpeg" alt="Exposição de ferramentas profissionais no balcão Sanifase">
     </div>
     <div class="gitem">
-      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(6).jpeg" alt="Área Joval">
+      <img src="/Interior/WhatsApp%20Image%202026-05-14%20at%2018.27.30%20(6).jpeg" alt="Exposição de tijoleiras e revestimentos Joval no showroom Sanifase">
     </div>
   </div>
-</div>
+</section>
 
 <!-- BRANDS -->
 <div class="brands-sec">
@@ -1602,7 +1657,7 @@ footer {
 </div>
 
 <!-- SCHEDULE -->
-<div class="schedule-sec" id="horario">
+<section class="schedule-sec" id="horario" aria-label="Horário de Funcionamento">
   <div>
     <div class="sec-label fade-up">Estamos Abertos</div>
     <h2 class="sec-h fade-up d1">Horário<br>de Funcionamento.</h2>
@@ -1654,7 +1709,7 @@ footer {
       ⏰ Horário sujeito a alterações em feriados nacionais e municipais.
     </div>
   </div>
-</div>
+</section>
 
 <!-- CTA FULL -->
 <section class="cta-full">
@@ -1686,13 +1741,14 @@ footer {
 </section>
 
 <!-- CONTACT -->
-<div class="contact-sec" id="contacto">
+<section class="contact-sec" id="contacto" aria-label="Contacto">
   <div class="contact-left">
     <div class="sec-label fade-up">Contacte-nos</div>
     <h2 class="sec-h fade-up d1">Fale<br>connosco.</h2>
     <p style="color:var(--muted);font-size:16px;line-height:1.75;font-weight:300;margin:20px 0 52px;max-width:380px" class="fade-up d2">
       Estamos prontos para o aconselhar e apresentar a melhor solução para o seu projeto — residencial ou industrial.
     </p>
+    <address>
     <div class="contact-detail fade-up d2">
       <div class="ci">📞</div>
       <div class="ct">
@@ -1735,6 +1791,7 @@ footer {
         <p>Visite-nos pessoalmente e experimente os produtos</p>
       </div>
     </div>
+    </address>
     <div class="soc-row fade-up d4">
       <a href="https://www.instagram.com/sanifase_/" target="_blank" rel="noopener" class="soc-btn" title="Instagram">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -1793,13 +1850,13 @@ footer {
       Enviar via WhatsApp
     </button>
   </form>
-</div>
+</section>
 
 </main>
 
 <!-- FOOTER -->
 <footer aria-label="Rodapé">
-  <a href="#" class="foot-logo"><img src="/logo_completo_highres.png" alt="Sanifase"></a>
+  <a href="/" class="foot-logo"><img src="/logo_completo_highres.png" alt="Sanifase — Materiais de Construção em Baião"></a>
   <p class="foot-copy">© 2026 Sanifase Lda. Todos os direitos reservados.</p>
   <div class="foot-links">
     <a href="/politica-de-privacidade.html">Política de Privacidade</a>
