@@ -2,11 +2,9 @@
 <html lang="pt-PT" style="background:#001845">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#001845">
 <meta name="color-scheme" content="dark">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -312,8 +310,8 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: env(safe-area-inset-top) 48px 0;
-  height: calc(72px + env(safe-area-inset-top));
+  padding: 0 48px;
+  height: 72px;
   transition: background .35s, box-shadow .35s, height .35s;
 }
 nav.solid {
@@ -1054,7 +1052,7 @@ footer {
 /* ──────────────── RESPONSIVE ──────────────── */
 @media (max-width:900px) {
   /* NAV */
-  nav { padding: env(safe-area-inset-top) 16px 0; height: calc(64px + env(safe-area-inset-top)); background: rgba(0,24,69,.97); backdrop-filter: blur(24px); }
+  nav { padding: 0 16px; height: 64px; background: rgba(0,24,69,.97); backdrop-filter: blur(24px); }
   .nav-links { display: none; }
   .nav-phone { display: none; }
   .nav-burger { display: flex; }
