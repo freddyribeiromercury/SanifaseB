@@ -166,6 +166,13 @@ nav {
   transition: transform .45s cubic-bezier(.25,.46,.45,.94);
 }
 .prod-tile:hover .prod-tile-img img { transform: scale(1.06); }
+.prod-tile-name {
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.35;
+}
 
 /* lightbox */
 .lightbox {
@@ -477,11 +484,11 @@ const CATEGORIES = {
     desc: 'Tubagens PP-R e PVC, bombas submersíveis, vasos de expansão e acessórios de abastecimento de água.',
     hero: 'H1_E9lBXJ2tTI.jpg',
     images: [
-      '_O2WmkUWVy36bTQgbee9JTZ-VwdZzYcgP_Vr-HS-sJElPbASakXhRsVPU1amERe7zVQ2A4yqbo9O-hN_8lCd5jGUuvifbnaUFxr1SzZceUnRgjRkXXmZByfBDKzqBZ3e6cGoXlcjLNlkd0gWNjxAoTYFTwbH_7SdB3VypFREqV1gNXMK6R3BARna1qCQ-P1C.jpg',
-      'bj6-main.webp',
-      'm8Qz41m330Zsw7mhofy4Yt7ryoA06RupejhMwFpxKPLOmvPiNIBw3n-lpCXcfZGGfajcURrHujDlQlq0pLznbJFRpEDoHJohzVJAZJjJKJPvCyIozzD6HCUgUcQSvNDUnT8HGfraGHFIrwpMk-OFFX-yZ_8-U0ROLJemRrRQjoG-iGjzYjT9bxMm4yYvHkjX.jpg',
-      'pDOJ37BV2GBRSmDSY7vY8A6__FAf_eOwFZG8GYECROP04AVDOqeN-FhxCjtHIjVPKXJ3KxfHrEfItPQenwyKLn1DES61FKqfkT8DpYPlIr8TjuQnSy8N56TQb_1uV2JUp4f4FdM1DXLw7m4rx78HxxEmTcDxbeO3FjVfGV5dRuyngMwNwc8BWtY8hW1i6wI8.jpg',
-      'tubo-pvc-UNI.jpg'
+      { file: '_O2WmkUWVy36bTQgbee9JTZ-VwdZzYcgP_Vr-HS-sJElPbASakXhRsVPU1amERe7zVQ2A4yqbo9O-hN_8lCd5jGUuvifbnaUFxr1SzZceUnRgjRkXXmZByfBDKzqBZ3e6cGoXlcjLNlkd0gWNjxAoTYFTwbH_7SdB3VypFREqV1gNXMK6R3BARna1qCQ-P1C.jpg', name: 'Tubo e Acessórios PPR' },
+      { file: 'bj6-main.webp', name: 'Bomba Submersa Inox' },
+      { file: 'm8Qz41m330Zsw7mhofy4Yt7ryoA06RupejhMwFpxKPLOmvPiNIBw3n-lpCXcfZGGfajcURrHujDlQlq0pLznbJFRpEDoHJohzVJAZJjJKJPvCyIozzD6HCUgUcQSvNDUnT8HGfraGHFIrwpMk-OFFX-yZ_8-U0ROLJemRrRQjoG-iGjzYjT9bxMm4yYvHkjX.jpg', name: 'Grupo Hidropressurizador Duplo' },
+      { file: 'pDOJ37BV2GBRSmDSY7vY8A6__FAf_eOwFZG8GYECROP04AVDOqeN-FhxCjtHIjVPKXJ3KxfHrEfItPQenwyKLn1DES61FKqfkT8DpYPlIr8TjuQnSy8N56TQb_1uV2JUp4f4FdM1DXLw7m4rx78HxxEmTcDxbeO3FjVfGV5dRuyngMwNwc8BWtY8hW1i6wI8.jpg', name: 'Tubo Multicamada Isolado' },
+      { file: 'tubo-pvc-UNI.jpg', name: 'Tubo PVC Pressão' }
     ]
   },
   'casa-de-banho': {
@@ -490,12 +497,12 @@ const CATEGORIES = {
     desc: 'Lavatórios, sanitas, bases de duche, banheiras e acessórios de instalação sanitária das melhores marcas.',
     hero: 'H1_plato-de-ducha-calacatta-gold.jpg',
     images: [
-      '1000x1000_c16422ab7de2346cc85dc0e1ff442139.jpg',
-      'SO7387eq2VoSGxMlk6ILur0NxljNYx8tbTKNb8X2ffP4d0hSZeVsfofEBvcRYvB-mcGnM4Md335CzvRaDNB_GcrK3fa7hGbpPns4oG6AgM7Pb59N9b1T_0SlqjBsWzwEZqtTpQpTdQkbEnj6F2V2tuYvqSXJBJLab4yrbBQRdEGDc_TKxKA--wztfSJ_p-zY.jpg',
-      'TudwTPc4xUSEbJ9-iUWnrPijOqr99aVzgMPsGsb5D9LMPoFWA1TZkkVhIVCulZxF0eGATkdCLN7-nGpZhFy9obGc7iElFIz6vxxk48ykesDnItm7ieQPTYLlL5AMegxNzyImqjkx7D3JPrZ2pyx-hIdh7NiCRcTWJK99HzvQgK-Po8z9WGwQ-BNQhrzoS5P.jpg',
-      'VlIpfJAVSjfXb1pJ-WpoQHE77XMcmcE2Vqf8QeImoge-yeUbNj4HUWe_JOKQkzTb1eDzRcE1ypuBwq8JloXrnZpVFEXqxdNirtd3-ymav9hh-1ufyd699yLawqZMRz63vnmV4bE0Sn2jdZfs4mrVQXVKyEcHajnKlQcLNu0TxlqaraCE_rRhsjkfpN_7DCJi.jpg',
-      'banheira-de-hidromassagem-moderna-anafe.jpg',
-      'limpiar-the-gap_984x550_acf_cropped@2x.jpg'
+      { file: '1000x1000_c16422ab7de2346cc85dc0e1ff442139.jpg', name: 'Banheira Autónoma Facetada' },
+      { file: 'SO7387eq2VoSGxMlk6ILur0NxljNYx8tbTKNb8X2ffP4d0hSZeVsfofEBvcRYvB-mcGnM4Md335CzvRaDNB_GcrK3fa7hGbpPns4oG6AgM7Pb59N9b1T_0SlqjBsWzwEZqtTpQpTdQkbEnj6F2V2tuYvqSXJBJLab4yrbBQRdEGDc_TKxKA--wztfSJ_p-zY.jpg', name: 'Resguardo de Duche em Vidro' },
+      { file: 'TudwTPc4xUSEbJ9-iUWnrPijOqr99aVzgMPsGsb5D9LMPoFWA1TZkkVhIVCulZxF0eGATkdCLN7-nGpZhFy9obGc7iElFIz6vxxk48ykesDnItm7ieQPTYLlL5AMegxNzyImqjkx7D3JPrZ2pyx-hIdh7NiCRcTWJK99HzvQgK-Po8z9WGwQ-BNQhrzoS5P.jpg', name: 'Móvel de Casa de Banho com Espelho' },
+      { file: 'VlIpfJAVSjfXb1pJ-WpoQHE77XMcmcE2Vqf8QeImoge-yeUbNj4HUWe_JOKQkzTb1eDzRcE1ypuBwq8JloXrnZpVFEXqxdNirtd3-ymav9hh-1ufyd699yLawqZMRz63vnmV4bE0Sn2jdZfs4mrVQXVKyEcHajnKlQcLNu0TxlqaraCE_rRhsjkfpN_7DCJi.jpg', name: 'Torneira Monocomando Dourada' },
+      { file: 'banheira-de-hidromassagem-moderna-anafe.jpg', name: 'Banheira Autónoma de Casal' },
+      { file: 'limpiar-the-gap_984x550_acf_cropped@2x.jpg', name: 'Bidé e Sanita Suspensa' }
     ]
   },
   climatizacao: {
@@ -504,11 +511,11 @@ const CATEGORIES = {
     desc: 'Ar condicionado, bombas de calor e ventilação — com instalação realizada pela nossa equipa técnica.',
     hero: 'H1_ARncS0m.jpg',
     images: [
-      'Blaupunkt2-002-1-723x1024.png',
-      'Design-sem-nome-4-2-300x300.png',
-      'Piso-radiante-hidraulico-Uma-opcao-de-aquecimento-em-analise.jpg',
-      'R32-2-1024x838.png',
-      'rumoplan-ventiloconvectores-detalhe.jpg'
+      { file: 'Blaupunkt2-002-1-723x1024.png', name: 'Termoacumulador com Bomba de Calor' },
+      { file: 'Design-sem-nome-4-2-300x300.png', name: 'Ar Condicionado Split Parede' },
+      { file: 'Piso-radiante-hidraulico-Uma-opcao-de-aquecimento-em-analise.jpg', name: 'Painéis de Piso Radiante' },
+      { file: 'R32-2-1024x838.png', name: 'Unidade Exterior Bomba de Calor' },
+      { file: 'rumoplan-ventiloconvectores-detalhe.jpg', name: 'Grelha de Climatização de Teto' }
     ]
   },
   construcao: {
@@ -517,11 +524,11 @@ const CATEGORIES = {
     desc: 'Tijoleiras, argamassas, cimentos e materiais de revestimento para obra residencial e comercial.',
     hero: 'H1_qoS80fK.jpg',
     images: [
-      '020903-300x300.png',
-      'NzN4DUa5lbEWa2W3KwA_QL5QT1Orqtf5QZHzFkEVzUYTGvPQo7L1rK85sgs-4v3Q_sUKpO2_5Me1qb2oQUgyl798oI8AZ8nft2DdVS0jP6MFqmTaVC5leMfgB2auWPIUTUSnqm3oXx0DbbBiF8SQgr1ojtCGGFb3jOzC-BGlHGzT_xRMNw-3MzNxxEvrdgEW.jpg',
-      'dXVlXnRLU3klmkg7s5QcTuCD3BfgfOgCV4mzrMUk6_zAaHdmAjbVrvwTIqSH1w1uS2u_vVag7B1ZIlIXFEHF13Cz5lCYo-DNsBR0mCzR_dzihDfK-yPSDm0p_znzb0o4E2u0Ju64YMO4V2vEHNQbllYBy4WmReyoba9Y5ICYpBLDUsQG9juPHhN2AMIpLCi.jpg',
-      'eo-6zW_BepaAS7Ayv-kdlmd7qwJIY83GG8jl3r2nxHZ8yVOVPxgjzhya2esPRBVa4iY75-d9wT7indqVn5DiJhIEyTB9BnVVff2mAIiI-lfGU65OT-2ompYQwexLYUaMCkNtg-bbgDssPmx-elljrb59lzIy9WxGLpLYuctxIsBsqsRe9lbrbe3hHOEShpsu.jpg',
-      'i1HOAMGTBqjE5AGEA2QurP8QjcenScsE1T11L7Hp_Huv2sD5C1nA1uvH3bCiIzKkc56XQ9UFhfFKwfi_xV3PvM2nk1uwinUaC42h8sC6hglWLvRv5YTwc-pBKc4lnEYg1zAwSgGeUNt6YDCkX2Ie3JjiMpnjvlZYXI295jKcP57o6hFxnBB3MQu0VSGwF0Kh.jpg'
+      { file: '020903-300x300.png', name: 'Manta Geotêxtil Preta em Rolo' },
+      { file: 'NzN4DUa5lbEWa2W3KwA_QL5QT1Orqtf5QZHzFkEVzUYTGvPQo7L1rK85sgs-4v3Q_sUKpO2_5Me1qb2oQUgyl798oI8AZ8nft2DdVS0jP6MFqmTaVC5leMfgB2auWPIUTUSnqm3oXx0DbbBiF8SQgr1ojtCGGFb3jOzC-BGlHGzT_xRMNw-3MzNxxEvrdgEW.jpg', name: 'Tampa de Caixa de Visita' },
+      { file: 'dXVlXnRLU3klmkg7s5QcTuCD3BfgfOgCV4mzrMUk6_zAaHdmAjbVrvwTIqSH1w1uS2u_vVag7B1ZIlIXFEHF13Cz5lCYo-DNsBR0mCzR_dzihDfK-yPSDm0p_znzb0o4E2u0Ju64YMO4V2vEHNQbllYBy4WmReyoba9Y5ICYpBLDUsQG9juPHhN2AMIpLCi.jpg', name: 'Placa Drenante Nodular' },
+      { file: 'eo-6zW_BepaAS7Ayv-kdlmd7qwJIY83GG8jl3r2nxHZ8yVOVPxgjzhya2esPRBVa4iY75-d9wT7indqVn5DiJhIEyTB9BnVVff2mAIiI-lfGU65OT-2ompYQwexLYUaMCkNtg-bbgDssPmx-elljrb59lzIy9WxGLpLYuctxIsBsqsRe9lbrbe3hHOEShpsu.jpg', name: 'Manta Geotêxtil para Caminhos' },
+      { file: 'i1HOAMGTBqjE5AGEA2QurP8QjcenScsE1T11L7Hp_Huv2sD5C1nA1uvH3bCiIzKkc56XQ9UFhfFKwfi_xV3PvM2nk1uwinUaC42h8sC6hglWLvRv5YTwc-pBKc4lnEYg1zAwSgGeUNt6YDCkX2Ie3JjiMpnjvlZYXI295jKcP57o6hFxnBB3MQu0VSGwF0Kh.jpg', name: 'Manta Geotêxtil para Drenagem' }
     ]
   },
   'drogaria-e-tintas': {
@@ -530,10 +537,10 @@ const CATEGORIES = {
     desc: 'Tintas, vernizes, primários e produtos de preparação de superfícies para interior e exterior.',
     hero: 'H1_G7XQfZggb_.jpg',
     images: [
-      'Folha-de-Lixa-Papel-Marceneiro-Indasa-Rhynowood---.jpg',
-      'Trinchas-Junior.png',
-      'WEB_BODEGON_FAMILIA_PRODUCTOS_HIBRIDOS.png',
-      'rolo-pintura-antigota-brico.webp'
+      { file: 'Folha-de-Lixa-Papel-Marceneiro-Indasa-Rhynowood---.jpg', name: 'Folha de Lixa para Madeira' },
+      { file: 'Trinchas-Junior.png', name: 'Kit de Trinchas para Pintura' },
+      { file: 'WEB_BODEGON_FAMILIA_PRODUCTOS_HIBRIDOS.png', name: 'Selante e Adesivo de Fixação' },
+      { file: 'rolo-pintura-antigota-brico.webp', name: 'Rolo de Pintura Antigotas' }
     ]
   },
   eletricidade: {
@@ -542,13 +549,13 @@ const CATEGORIES = {
     desc: 'Quadros elétricos, tomadas, interruptores, painéis fotovoltaicos e material de instalação.',
     hero: 'H1_paineis_fotovoltaicos_01.jpg',
     images: [
-      'B-kElAX5iqrtFLi7NPv5x7vU1va2fiJv2F-j8t07gaCDKniUd02KXucq74FiO_edoLjMFmgt1a47bZA0VLkBBFXYXgbiDzjNd7Ue08kFqFhTJT7FC5a6Q4qO9qSB9O_LWborOJuITpjY9gILxDOjsJ3jtNVA2ITV786DQqzkqH8Yat_VboeJdHgMeg-a7xlV.jpg',
-      'Hp5Rt3E8r4XEW17UqhuH7xncH0NymJL85CqWN1xRp4pU07TvauWWAjUzPKnwTbGG3MxQPmCPWzyqHpvqie2bQ_q861uatBN6qNHknkVSN48htgUpLLBuPaaRn2sFAYY7urxkOig1aNMG61CWaDk4bTqeG_Pvadkji8U9ZCXfhRp25pPKvJYpZhIzM2H2iQNR.jpg',
-      'Iluminacao-Casacor-2018.jpg',
-      'YBAkbIq_fqIZhJv8lpjwQVgWgjndVP6Xz39HsC6gYUFAEnEA4kpftB-pC4PrwBZge1ueyhNnP8hjaA_qn_PROL8E2P-sQSTWmKAellKyp9Z08Q75tw8mMKWw2J_SglCgVxbdwpB9FNtvp0xTWIxEjDX1j5a3sUlxaCckoBC2EW399NhGiBigL6qS.jpg',
-      'gd_312_1_tubo-corrugado-25mm-vermelhoverde.jpg',
-      'mecanismos-efapel-logus-90.webp',
-      'x_1seIv8OidWTyuundyzAZSHdRqc2S8YAK-UyVupCs0_fgl42scf0WYNjFA288R5b-uY-MT7yTeaR1e4wqzu6YLqMIIzutsCbXNnWmu5DPS_XGwyxB4e8q6QRo-Yvv_XJjkR6DtStANpl2nh4m0YBmmWsM4pHZ_-x0TEpCgkfJd4IrSmZaMdSionGh4xMIeY.jpg'
+      { file: 'B-kElAX5iqrtFLi7NPv5x7vU1va2fiJv2F-j8t07gaCDKniUd02KXucq74FiO_edoLjMFmgt1a47bZA0VLkBBFXYXgbiDzjNd7Ue08kFqFhTJT7FC5a6Q4qO9qSB9O_LWborOJuITpjY9gILxDOjsJ3jtNVA2ITV786DQqzkqH8Yat_VboeJdHgMeg-a7xlV.jpg', name: 'Tablet de Domótica para Casa Inteligente' },
+      { file: 'Hp5Rt3E8r4XEW17UqhuH7xncH0NymJL85CqWN1xRp4pU07TvauWWAjUzPKnwTbGG3MxQPmCPWzyqHpvqie2bQ_q861uatBN6qNHknkVSN48htgUpLLBuPaaRn2sFAYY7urxkOig1aNMG61CWaDk4bTqeG_Pvadkji8U9ZCXfhRp25pPKvJYpZhIzM2H2iQNR.jpg', name: 'Quadro Elétrico com Disjuntores' },
+      { file: 'Iluminacao-Casacor-2018.jpg', name: 'Iluminação Decorativa para Sala' },
+      { file: 'YBAkbIq_fqIZhJv8lpjwQVgWgjndVP6Xz39HsC6gYUFAEnEA4kpftB-pC4PrwBZge1ueyhNnP8hjaA_qn_PROL8E2P-sQSTWmKAellKyp9Z08Q75tw8mMKWw2J_SglCgVxbdwpB9FNtvp0xTWIxEjDX1j5a3sUlxaCckoBC2EW399NhGiBigL6qS.jpg', name: 'Kit Videoporteiro Vimar' },
+      { file: 'gd_312_1_tubo-corrugado-25mm-vermelhoverde.jpg', name: 'Tubo Corrugado 25mm' },
+      { file: 'mecanismos-efapel-logus-90.webp', name: 'Interruptor Logus 90 Efapel' },
+      { file: 'x_1seIv8OidWTyuundyzAZSHdRqc2S8YAK-UyVupCs0_fgl42scf0WYNjFA288R5b-uY-MT7yTeaR1e4wqzu6YLqMIIzutsCbXNnWmu5DPS_XGwyxB4e8q6QRo-Yvv_XJjkR6DtStANpl2nh4m0YBmmWsM4pHZ_-x0TEpCgkfJd4IrSmZaMdSionGh4xMIeY.jpg', name: 'Módulo Inteligente Shelly' }
     ]
   },
   ferramentas: {
@@ -557,11 +564,11 @@ const CATEGORIES = {
     desc: 'Ferramentas elétricas e manuais DeWalt, Stanley, Bosch e outras marcas profissionais para obra.',
     hero: 'H1_Stanley.jpg',
     images: [
-      '5vtKQK2XVndPzUghbWzRPVyDPtGVKCCAqR2QMxKSbgVfXwWgOKoqNDIkp_tAD8V6kpduO7e_kWbb_gEc5Ci7Klbp4ze5eMhUEPXnxsenB0Q5G3DFrhgag1LFJt-6OMZaKs6_44WtM0F6rfxBj8GmdvD9vVcU_Wuti4QaLUBrjz6Fi_IIL08RMsaGs7xpokgY.jpg',
-      'TDGmoFTaa9Uh-vfY_AI6onShumRr3j2oVynddscmncObZzymf0EHjwTCXErN8mFRYDc_YDbIXF0QaynIku0L0pt4V1MPwI0EXG0buKBsPjj5k3p5xKvSRauezahygTq9aWcMii7OHfL1BVnYse65hCOzB_LklBq8LuYVOBlZEHqLML3WvabMM5tTHx2WNOg.jpg',
-      'TjGeirEu6GUHveJQBKkOJpjm-1N9paRS3P-2oHfLM2Le3tO2MUDNU_Y_zIqisIvho7gy3AfxzzsY4tbv0hoOUYxoGHYhI26HsCMr6F2Y8M4mhSfE00VIuJfYwQCNOmDDukML02a4ZlJElSMCu6LiaGD1PScD8DW4_O2A7E7DqFV8yWlJ9hX7fYj6rKpE8Inz.jpg',
-      'WCn861mTe6yBnLUj5lAChkvOYBYWnihfDqtB2ob1-TwWwX_3Xbeex-fzJFebNfeCwV2iXOD8-SJFyMcVCO1GB1Bj3kcgvQYDSTtTivetWZ92VEiu3fVuxquojd2AUYOBpkU_-ebuVL2gzPesg7_cjZapk1YJ80ARgXhbYbQQubp-LG1RcT_TRSVvEUiN3HSQ.jpg',
-      'pk_1SproiP0WDpqjvEpuKQki1n7fBITh3iFdZQp3uV7E1V1lH7FHMdXPap-65d03XPnrSbsA0m_Ao41FhiIDMwf5_AmshHxFo-thE3XRvcR_SKQ4kDJ0bUOdIo3LjROAszb7xgIMZkS4o-X5ZTZMqz4J2FKSEW1BXLBEnTWQrntQ-K78pkw4VYvWJETTAS7C.jpg'
+      { file: '5vtKQK2XVndPzUghbWzRPVyDPtGVKCCAqR2QMxKSbgVfXwWgOKoqNDIkp_tAD8V6kpduO7e_kWbb_gEc5Ci7Klbp4ze5eMhUEPXnxsenB0Q5G3DFrhgag1LFJt-6OMZaKs6_44WtM0F6rfxBj8GmdvD9vVcU_Wuti4QaLUBrjz6Fi_IIL08RMsaGs7xpokgY.jpg', name: 'Kit de Ferramentas a Bateria' },
+      { file: 'TDGmoFTaa9Uh-vfY_AI6onShumRr3j2oVynddscmncObZzymf0EHjwTCXErN8mFRYDc_YDbIXF0QaynIku0L0pt4V1MPwI0EXG0buKBsPjj5k3p5xKvSRauezahygTq9aWcMii7OHfL1BVnYse65hCOzB_LklBq8LuYVOBlZEHqLML3WvabMM5tTHx2WNOg.jpg', name: 'Kit de Equipamento de Proteção Individual' },
+      { file: 'TjGeirEu6GUHveJQBKkOJpjm-1N9paRS3P-2oHfLM2Le3tO2MUDNU_Y_zIqisIvho7gy3AfxzzsY4tbv0hoOUYxoGHYhI26HsCMr6F2Y8M4mhSfE00VIuJfYwQCNOmDDukML02a4ZlJElSMCu6LiaGD1PScD8DW4_O2A7E7DqFV8yWlJ9hX7fYj6rKpE8Inz.jpg', name: 'Kit de Ferramentas a Bateria Bosch' },
+      { file: 'WCn861mTe6yBnLUj5lAChkvOYBYWnihfDqtB2ob1-TwWwX_3Xbeex-fzJFebNfeCwV2iXOD8-SJFyMcVCO1GB1Bj3kcgvQYDSTtTivetWZ92VEiu3fVuxquojd2AUYOBpkU_-ebuVL2gzPesg7_cjZapk1YJ80ARgXhbYbQQubp-LG1RcT_TRSVvEUiN3HSQ.jpg', name: 'Kit de Ferramentas e Acessórios' },
+      { file: 'pk_1SproiP0WDpqjvEpuKQki1n7fBITh3iFdZQp3uV7E1V1lH7FHMdXPap-65d03XPnrSbsA0m_Ao41FhiIDMwf5_AmshHxFo-thE3XRvcR_SKQ4kDJ0bUOdIo3LjROAszb7xgIMZkS4o-X5ZTZMqz4J2FKSEW1BXLBEnTWQrntQ-K78pkw4VYvWJETTAS7C.jpg', name: 'Conjunto de Ferramentas a Bateria' }
     ]
   },
   piscinas: {
@@ -570,12 +577,12 @@ const CATEGORIES = {
     desc: 'Bombas, filtros, tratamento de água e acessórios para piscinas particulares e comerciais.',
     hero: 'H1_PISCINA-ILUMINADA.webp',
     images: [
-      '1999974923g03.jpg',
-      'YBu3AgzQj0E2gNzl72I16RVNrOg2NwFp3U7cUJSh79UbqMwJdm1N214IsOCpfCCHqO9lgeZSx7hLD0jz7Hb_uFI4N16y3mLYN2g_xr_bnP9IMSK3M-SHtqctC-4BdBWypdGp5eyMBCdAEgYBj9iZam6aIwnZo8bovs51b1jWpC4_oV_mET6fS_YSGyLq6fSH.jpg',
-      'kit-filtracion-bomba-filtro_2.webp',
-      'maquinas021-1024x768.jpg',
-      'media.jpg',
-      'sal-piscina-25-kg.jpg'
+      { file: '1999974923g03.jpg', name: 'Robô Limpa-Fundos para Piscina' },
+      { file: 'YBu3AgzQj0E2gNzl72I16RVNrOg2NwFp3U7cUJSh79UbqMwJdm1N214IsOCpfCCHqO9lgeZSx7hLD0jz7Hb_uFI4N16y3mLYN2g_xr_bnP9IMSK3M-SHtqctC-4BdBWypdGp5eyMBCdAEgYBj9iZam6aIwnZo8bovs51b1jWpC4_oV_mET6fS_YSGyLq6fSH.jpg', name: 'Piscina de Luxo com Iluminação' },
+      { file: 'kit-filtracion-bomba-filtro_2.webp', name: 'Kit Filtro de Areia com Bomba' },
+      { file: 'maquinas021-1024x768.jpg', name: 'Sistema de Filtração e Tratamento de Piscina' },
+      { file: 'media.jpg', name: 'Cloro Granulado de Ação Rápida' },
+      { file: 'sal-piscina-25-kg.jpg', name: 'Sal para Piscinas 25 kg' }
     ]
   },
   'rega-e-jardim': {
@@ -584,11 +591,11 @@ const CATEGORIES = {
     desc: 'Aspersores, tubagens, controladores automáticos e equipamentos de rega para jardim e espaços verdes.',
     hero: 'H1_aspersores.jpg',
     images: [
-      '1734746712_a5f9c1c599ed783c9e5d64ab0fe5f295.jpg',
-      'JRRQaMiAYCq6JVQaLYHib2m77Oikv_aunK_vYOPYbR3f1hPlUt5F6bYku8dEuFByp3thUV0-P2TuiaxwnnNMDr-QRMJpk9QrsF3zR1ChwUXzHB904ONcIc7A1xRqUMUuaNMZoSCUpZ4iwEBy75YJ3oaIr2VuNygurKVPP9b7gu8onlTWa7PBy8e7gQAdSdqj.jpg',
-      'NA23LQJpPGECII9ysdyDGVnXWL9-i-h2eTeijfWwqsA6m-NV_izQT8tbwr65GV_vjeYBhLdAfr78wj_cGZZKVDAZhv56NIj--wjKpRYT0exFO2vv0GaarlolowjRXZFQYvbxo9xw_tqUJf32PZUecOT9Utk-De4Z6TrVJvz6h_AnQWXJogyT7N4lZABI7MMA.jpg',
-      'j3722-hunter-01.png',
-      'mangueira-man-blue-a15mm-15m.jpg'
+      { file: '1734746712_a5f9c1c599ed783c9e5d64ab0fe5f295.jpg', name: 'Poste para Vedação em Painel' },
+      { file: 'JRRQaMiAYCq6JVQaLYHib2m77Oikv_aunK_vYOPYbR3f1hPlUt5F6bYku8dEuFByp3thUV0-P2TuiaxwnnNMDr-QRMJpk9QrsF3zR1ChwUXzHB904ONcIc7A1xRqUMUuaNMZoSCUpZ4iwEBy75YJ3oaIr2VuNygurKVPP9b7gu8onlTWa7PBy8e7gQAdSdqj.jpg', name: 'Caixa de Válvulas para Rega' },
+      { file: 'NA23LQJpPGECII9ysdyDGVnXWL9-i-h2eTeijfWwqsA6m-NV_izQT8tbwr65GV_vjeYBhLdAfr78wj_cGZZKVDAZhv56NIj--wjKpRYT0exFO2vv0GaarlolowjRXZFQYvbxo9xw_tqUJf32PZUecOT9Utk-De4Z6TrVJvz6h_AnQWXJogyT7N4lZABI7MMA.jpg', name: 'Rolo de Relva Artificial' },
+      { file: 'j3722-hunter-01.png', name: 'Eletroválvula para Rega Automática' },
+      { file: 'mangueira-man-blue-a15mm-15m.jpg', name: 'Mangueira de Rega 15m' }
     ]
   }
 };
@@ -623,10 +630,11 @@ function render() {
     return;
   }
 
-  grid.innerHTML = cat.images.map(f => {
-    const src = imgUrl(cat.folder, f);
+  grid.innerHTML = cat.images.map(item => {
+    const src = imgUrl(cat.folder, item.file);
     return `<div class="prod-tile" data-src="${src}">
-      <div class="prod-tile-img"><img src="${src}" alt="${cat.name}" loading="lazy"></div>
+      <div class="prod-tile-img"><img src="${src}" alt="${item.name}" loading="lazy"></div>
+      <p class="prod-tile-name">${item.name}</p>
     </div>`;
   }).join('');
 
