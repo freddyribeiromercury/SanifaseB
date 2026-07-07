@@ -883,26 +883,37 @@ nav.solid {
   font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
   letter-spacing: .04em; color: var(--muted);
 }
-.cat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.cat-card {
-  display: flex; align-items: center; gap: 16px;
+.cdl-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+.cdl-card {
+  display: flex; flex-direction: column;
   background: #fff; border: 1px solid var(--border); border-radius: 14px;
-  padding: 18px 20px; text-decoration: none;
+  overflow: hidden; text-decoration: none;
   transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;
 }
-.cat-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.08); border-color: #CBD5E1; }
-.cat-ico {
-  flex-shrink: 0; width: 46px; height: 46px; border-radius: 11px;
-  background: #FDECEC; color: #D6453D;
-  display: flex; align-items: center; justify-content: center;
+.cdl-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.08); border-color: #CBD5E1; }
+.cdl-cover {
+  position: relative; display: block; aspect-ratio: 3/4;
+  background: #fff; border-bottom: 1px solid var(--border);
 }
-.cat-info { flex: 1; min-width: 0; }
-.cat-title { display: block; font-size: 14.5px; font-weight: 600; color: var(--navy); line-height: 1.32; margin-bottom: 5px; }
-.cat-meta { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
-.cat-meta .cat-dot { margin: 0 6px; opacity: .55; }
-.cat-dl { flex-shrink: 0; color: var(--blue); transition: transform .22s; }
-.cat-card:hover .cat-dl { transform: translateY(2px); }
-@media (max-width:1100px) and (min-width:901px) { .cat-grid { grid-template-columns: repeat(2,1fr); } }
+.cdl-cover img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 12px; display: block;
+}
+.cdl-badge {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .03em;
+  color: #fff; background: rgba(0,24,69,.72);
+  padding: 4px 8px; border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+.cdl-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 14px; flex: 1;
+}
+.cdl-title { font-size: 13.5px; font-weight: 600; color: var(--navy); line-height: 1.35; }
+.cdl-dl { flex-shrink: 0; color: var(--blue); transition: transform .22s; }
+.cdl-card:hover .cdl-dl { transform: translateY(2px); }
+@media (max-width:1100px) and (min-width:901px) { .cdl-grid { grid-template-columns: repeat(3,1fr); } }
 
 /* ──────────────── CTA FULL ──────────────── */
 .cta-full {
@@ -1218,7 +1229,7 @@ footer {
   /* CATÁLOGOS */
   .cat-sec { padding: 60px 20px; }
   .cat-head { margin-bottom: 44px; }
-  .cat-grid { grid-template-columns: 1fr; gap: 12px; }
+  .cdl-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
   .cat-group { margin-bottom: 40px; }
 
   /* SCHEDULE */
@@ -1722,76 +1733,62 @@ footer {
     <!-- Tintas & Revestimentos -->
     <div class="cat-group fade-up">
       <h3 class="cat-group-title">Tintas &amp; Revestimentos — Neuce <span class="cat-count">14 catálogos</span></h3>
-      <div class="cat-grid">
-        <a class="cat-card" href="/catalogos/neuce-interiores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Interiores</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>6.8 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="cdl-grid">
+        <a class="cdl-card" href="/catalogos/neuce-interiores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-interiores.jpg" alt="Capa do catálogo Interiores" loading="lazy"><span class="cdl-badge">PDF · 6.8 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Interiores</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-cores-interior-exterior.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Carta de Cores · Interior &amp; Exterior</span><span class="cat-meta">24 págs<span class="cat-dot">·</span>3.1 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-cores-interior-exterior.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-cores-interior-exterior.jpg" alt="Capa do catálogo Carta de Cores · Interior & Exterior" loading="lazy"><span class="cdl-badge">PDF · 3.1 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Carta de Cores · Interior &amp; Exterior</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-exteriores-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Exteriores · Carta de Cores</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>4.1 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-exteriores-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-exteriores-cores.jpg" alt="Capa do catálogo Exteriores · Carta de Cores" loading="lazy"><span class="cdl-badge">PDF · 4.1 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Exteriores · Carta de Cores</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-esmaltes-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Esmaltes · Carta de Cores</span><span class="cat-meta">4 págs<span class="cat-dot">·</span>1.5 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-esmaltes-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-esmaltes-cores.jpg" alt="Capa do catálogo Esmaltes · Carta de Cores" loading="lazy"><span class="cdl-badge">PDF · 1.5 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Esmaltes · Carta de Cores</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-neucedecor-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Neucedecor · Carta de Cores</span><span class="cat-meta">4 págs<span class="cat-dot">·</span>1.1 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-neucedecor-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-neucedecor-cores.jpg" alt="Capa do catálogo Neucedecor · Carta de Cores" loading="lazy"><span class="cdl-badge">PDF · 1.1 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Neucedecor · Carta de Cores</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-neucemotions-metalicos-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Neucemotions · Metálicos</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>2.9 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-neucemotions-metalicos-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-neucemotions-metalicos-cores.jpg" alt="Capa do catálogo Neucemotions · Metálicos" loading="lazy"><span class="cdl-badge">PDF · 2.9 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Neucemotions · Metálicos</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-microneuce-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Microneuce · Carta de Cores</span><span class="cat-meta">8 págs<span class="cat-dot">·</span>1.6 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-microneuce-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-microneuce-cores.jpg" alt="Capa do catálogo Microneuce · Carta de Cores" loading="lazy"><span class="cdl-badge">PDF · 1.6 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Microneuce · Carta de Cores</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-woodneuce-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Woodneuce · Madeiras (Cores)</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>5.0 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-woodneuce-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-woodneuce-cores.jpg" alt="Capa do catálogo Woodneuce · Madeiras (Cores)" loading="lazy"><span class="cdl-badge">PDF · 5.0 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Woodneuce · Madeiras (Cores)</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-madeiras-mobiliario.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Madeiras · Indústria de Mobiliário</span><span class="cat-meta">8 págs<span class="cat-dot">·</span>462 KB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-madeiras-mobiliario.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-madeiras-mobiliario.jpg" alt="Capa do catálogo Madeiras · Indústria de Mobiliário" loading="lazy"><span class="cdl-badge">PDF · 462 KB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Madeiras · Indústria de Mobiliário</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-pavineuce-pavimentos.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Pavineuce · Tintas para Pavimentos</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>1.6 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-pavineuce-pavimentos.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-pavineuce-pavimentos.jpg" alt="Capa do catálogo Pavineuce · Tintas para Pavimentos" loading="lazy"><span class="cdl-badge">PDF · 1.6 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Pavineuce · Tintas para Pavimentos</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-neucegrani-revestimento.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Neucegrani · Revestimento Decorativo</span><span class="cat-meta">6 págs<span class="cat-dot">·</span>1.7 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-neucegrani-revestimento.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-neucegrani-revestimento.jpg" alt="Capa do catálogo Neucegrani · Revestimento Decorativo" loading="lazy"><span class="cdl-badge">PDF · 1.7 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Neucegrani · Revestimento Decorativo</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-neucepedra-cores.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Neucepedra · Revestimento Multicolor</span><span class="cat-meta">4 págs<span class="cat-dot">·</span>423 KB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-neucepedra-cores.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-neucepedra-cores.jpg" alt="Capa do catálogo Neucepedra · Revestimento Multicolor" loading="lazy"><span class="cdl-badge">PDF · 423 KB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Neucepedra · Revestimento Multicolor</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-industria-metalomecanica.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Indústria · Metalomecânica</span><span class="cat-meta">12 págs<span class="cat-dot">·</span>727 KB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-industria-metalomecanica.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-industria-metalomecanica.jpg" alt="Capa do catálogo Indústria · Metalomecânica" loading="lazy"><span class="cdl-badge">PDF · 727 KB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Indústria · Metalomecânica</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/neuce-neucetherm-isolamento-termico.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Neucetherm · Isolamento Térmico Exterior</span><span class="cat-meta">72 págs<span class="cat-dot">·</span>28.5 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/neuce-neucetherm-isolamento-termico.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/neuce-neucetherm-isolamento-termico.jpg" alt="Capa do catálogo Neucetherm · Isolamento Térmico Exterior" loading="lazy"><span class="cdl-badge">PDF · 28.5 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Neucetherm · Isolamento Térmico Exterior</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
       </div>
     </div>
@@ -1799,16 +1796,14 @@ footer {
     <!-- Eletricidade -->
     <div class="cat-group fade-up">
       <h3 class="cat-group-title">Eletricidade — Efapel <span class="cat-count">2 catálogos</span></h3>
-      <div class="cat-grid">
-        <a class="cat-card" href="/catalogos/efapel-geral.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Catálogo Geral</span><span class="cat-meta">418 págs<span class="cat-dot">·</span>55.2 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="cdl-grid">
+        <a class="cdl-card" href="/catalogos/efapel-geral.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/efapel-geral.jpg" alt="Capa do catálogo Catálogo Geral" loading="lazy"><span class="cdl-badge">PDF · 55.2 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Catálogo Geral</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/efapel-aparelhagens-embeber.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Aparelhagem de Embeber</span><span class="cat-meta">20 págs<span class="cat-dot">·</span>4.9 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/efapel-aparelhagens-embeber.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/efapel-aparelhagens-embeber.jpg" alt="Capa do catálogo Aparelhagem de Embeber" loading="lazy"><span class="cdl-badge">PDF · 4.9 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Aparelhagem de Embeber</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
       </div>
     </div>
@@ -1816,26 +1811,22 @@ footer {
     <!-- Outras marcas -->
     <div class="cat-group fade-up">
       <h3 class="cat-group-title">Casa de Banho, Ferramentas &amp; Mais <span class="cat-count">4 catálogos</span></h3>
-      <div class="cat-grid">
-        <a class="cat-card" href="/catalogos/casa-peixoto-kaza-cozy.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Casa Peixoto · Gama Kaza / Cozy</span><span class="cat-meta">60 págs<span class="cat-dot">·</span>16.0 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="cdl-grid">
+        <a class="cdl-card" href="/catalogos/casa-peixoto-kaza-cozy.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/casa-peixoto-kaza-cozy.jpg" alt="Capa do catálogo Casa Peixoto · Gama Kaza / Cozy" loading="lazy"><span class="cdl-badge">PDF · 16.0 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Casa Peixoto · Gama Kaza / Cozy</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/mantools-2025-2026.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Mantools · Ferramentas 2025/2026</span><span class="cat-meta">302 págs<span class="cat-dot">·</span>58.4 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/mantools-2025-2026.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/mantools-2025-2026.jpg" alt="Capa do catálogo Mantools · Ferramentas 2025/2026" loading="lazy"><span class="cdl-badge">PDF · 58.4 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Mantools · Ferramentas 2025/2026</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/artur-godinho-geral.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">Artur Godinho · Rega, Jardim &amp; Agrícola</span><span class="cat-meta">68 págs<span class="cat-dot">·</span>4.9 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/artur-godinho-geral.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/artur-godinho-geral.jpg" alt="Capa do catálogo Artur Godinho · Rega, Jardim & Agrícola" loading="lazy"><span class="cdl-badge">PDF · 4.9 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">Artur Godinho · Rega, Jardim &amp; Agrícola</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="cat-card" href="/catalogos/vml-protecao-individual-2024.pdf" download>
-          <span class="cat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-          <span class="cat-info"><span class="cat-title">VML · Proteção Individual 2024 (EPI)</span><span class="cat-meta">176 págs<span class="cat-dot">·</span>47.4 MB<span class="cat-dot">·</span>PDF</span></span>
-          <span class="cat-dl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <a class="cdl-card" href="/catalogos/vml-protecao-individual-2024.pdf" download>
+          <span class="cdl-cover"><img src="/catalogos/capas/vml-protecao-individual-2024.jpg" alt="Capa do catálogo VML · Proteção Individual 2024 (EPI)" loading="lazy"><span class="cdl-badge">PDF · 47.4 MB</span></span>
+          <span class="cdl-foot"><span class="cdl-title">VML · Proteção Individual 2024 (EPI)</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
       </div>
     </div>
