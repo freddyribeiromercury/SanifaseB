@@ -21,6 +21,7 @@ const MIME = {
   '.ttf': 'font/ttf',
   '.xml': 'application/xml',
   '.txt': 'text/plain',
+  '.pdf': 'application/pdf',
 };
 
 // Paths that must never be served
