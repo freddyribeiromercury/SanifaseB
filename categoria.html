@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
 <title id="page-title">Categoria — Sanifase</title>
+<meta name="description" id="page-desc" content="Categorias de produtos Sanifase em Baião: drogaria, tintas, canalização, climatização, eletricidade, construção, ferramentas e mais.">
+<link rel="canonical" id="page-canonical" href="https://www.sanifase.pt/categoria.html">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -534,7 +536,7 @@ const CATEGORIES = {
   'drogaria-e-tintas': {
     name: 'Drogaria e Tintas',
     folder: 'drogaria e tintas',
-    desc: 'Tintas, vernizes, primários e produtos de preparação de superfícies para interior e exterior.',
+    desc: 'Produtos de drogaria, tintas, vernizes, primários e preparação de superfícies para interior e exterior.',
     hero: 'H1_G7XQfZggb_.jpg',
     images: [
       { file: 'Folha-de-Lixa-Papel-Marceneiro-Indasa-Rhynowood---.jpg', name: 'Folha de Lixa para Madeira' },
@@ -615,7 +617,9 @@ function render() {
     return;
   }
 
-  document.getElementById('page-title').textContent = cat.name + ' — Sanifase';
+  document.getElementById('page-title').textContent = cat.name + ' em Baião — Sanifase';
+  document.getElementById('page-desc').setAttribute('content', cat.desc + ' Loja Sanifase em Baião — visite-nos ou ligue +351 918 532 497.');
+  document.getElementById('page-canonical').setAttribute('href', 'https://www.sanifase.pt/categoria.html?cat=' + encodeURIComponent(key));
   const heroImg = document.getElementById('heroImg');
   heroImg.src = imgUrl(cat.folder, cat.hero);
   heroImg.alt = cat.name;
