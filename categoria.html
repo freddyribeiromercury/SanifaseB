@@ -43,7 +43,7 @@ nav {
 }
 .nav-logo img { height: 44px; filter: brightness(0) invert(1); transition: opacity .2s; }
 .nav-logo img:hover { opacity: .8; }
-.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,.75); text-decoration: none;
   font-size: 12.5px; font-weight: 500;
@@ -51,6 +51,7 @@ nav {
   transition: color .2s;
 }
 .nav-links a:hover { color: #fff; }
+.nav-links > li > a { display: block; line-height: 1; }
 .nav-right { display: flex; align-items: center; gap: 28px; }
 .nav-phone {
   color: rgba(255,255,255,.75); text-decoration: none;
@@ -300,7 +301,7 @@ footer {
   background: none; border: none; cursor: pointer;
   color: rgba(255,255,255,.75); font-size: 12.5px; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  font-family: inherit; padding: 0;
+  font-family: inherit; padding: 0; line-height: 1;
   display: flex; align-items: center; gap: 6px;
   transition: color .2s;
 }
@@ -490,7 +491,9 @@ const CATEGORIES = {
       { file: 'bj6-main.webp', name: 'Bomba Submersa Inox' },
       { file: 'm8Qz41m330Zsw7mhofy4Yt7ryoA06RupejhMwFpxKPLOmvPiNIBw3n-lpCXcfZGGfajcURrHujDlQlq0pLznbJFRpEDoHJohzVJAZJjJKJPvCyIozzD6HCUgUcQSvNDUnT8HGfraGHFIrwpMk-OFFX-yZ_8-U0ROLJemRrRQjoG-iGjzYjT9bxMm4yYvHkjX.jpg', name: 'Grupo Hidropressurizador Duplo' },
       { file: 'pDOJ37BV2GBRSmDSY7vY8A6__FAf_eOwFZG8GYECROP04AVDOqeN-FhxCjtHIjVPKXJ3KxfHrEfItPQenwyKLn1DES61FKqfkT8DpYPlIr8TjuQnSy8N56TQb_1uV2JUp4f4FdM1DXLw7m4rx78HxxEmTcDxbeO3FjVfGV5dRuyngMwNwc8BWtY8hW1i6wI8.jpg', name: 'Tubo Multicamada Isolado' },
-      { file: 'tubo-pvc-UNI.jpg', name: 'Tubo PVC Pressão' }
+      { file: 'tubo-pvc-UNI.jpg', name: 'Tubo PVC Pressão' },
+      { file: 'autocalve.png', name: 'Autoclave em Inox' },
+      { file: 'Pressostatos.png', name: 'Pressostatos' }
     ]
   },
   'casa-de-banho': {
@@ -517,7 +520,10 @@ const CATEGORIES = {
       { file: 'Design-sem-nome-4-2-300x300.png', name: 'Ar Condicionado Split Parede' },
       { file: 'Piso-radiante-hidraulico-Uma-opcao-de-aquecimento-em-analise.jpg', name: 'Painéis de Piso Radiante' },
       { file: 'R32-2-1024x838.png', name: 'Unidade Exterior Bomba de Calor' },
-      { file: 'rumoplan-ventiloconvectores-detalhe.jpg', name: 'Grelha de Climatização de Teto' }
+      { file: 'rumoplan-ventiloconvectores-detalhe.jpg', name: 'Grelha de Climatização de Teto' },
+      { file: 'Conduta de ar.jpeg', name: 'Conduta de Ar' },
+      { file: 'Sistema VMC - Ventilação Mecanica Controlada.jpeg', name: 'Sistema VMC - Ventilação Mecânica Controlada' },
+      { file: 'Ventiloconvectores de Parede.jpeg', name: 'Ventiloconvectores de Parede' }
     ]
   },
   construcao: {
@@ -526,11 +532,17 @@ const CATEGORIES = {
     desc: 'Tijoleiras, argamassas, cimentos e materiais de revestimento para obra residencial e comercial.',
     hero: 'H1_qoS80fK.jpg',
     images: [
-      { file: '020903-300x300.png', name: 'Manta Geotêxtil Preta em Rolo' },
+      { file: '020903-300x300.png', name: 'Manga Plástica' },
       { file: 'NzN4DUa5lbEWa2W3KwA_QL5QT1Orqtf5QZHzFkEVzUYTGvPQo7L1rK85sgs-4v3Q_sUKpO2_5Me1qb2oQUgyl798oI8AZ8nft2DdVS0jP6MFqmTaVC5leMfgB2auWPIUTUSnqm3oXx0DbbBiF8SQgr1ojtCGGFb3jOzC-BGlHGzT_xRMNw-3MzNxxEvrdgEW.jpg', name: 'Tampa de Caixa de Visita' },
-      { file: 'dXVlXnRLU3klmkg7s5QcTuCD3BfgfOgCV4mzrMUk6_zAaHdmAjbVrvwTIqSH1w1uS2u_vVag7B1ZIlIXFEHF13Cz5lCYo-DNsBR0mCzR_dzihDfK-yPSDm0p_znzb0o4E2u0Ju64YMO4V2vEHNQbllYBy4WmReyoba9Y5ICYpBLDUsQG9juPHhN2AMIpLCi.jpg', name: 'Placa Drenante Nodular' },
+      { file: 'dXVlXnRLU3klmkg7s5QcTuCD3BfgfOgCV4mzrMUk6_zAaHdmAjbVrvwTIqSH1w1uS2u_vVag7B1ZIlIXFEHF13Cz5lCYo-DNsBR0mCzR_dzihDfK-yPSDm0p_znzb0o4E2u0Ju64YMO4V2vEHNQbllYBy4WmReyoba9Y5ICYpBLDUsQG9juPHhN2AMIpLCi.jpg', name: 'Tela Pitonada' },
       { file: 'eo-6zW_BepaAS7Ayv-kdlmd7qwJIY83GG8jl3r2nxHZ8yVOVPxgjzhya2esPRBVa4iY75-d9wT7indqVn5DiJhIEyTB9BnVVff2mAIiI-lfGU65OT-2ompYQwexLYUaMCkNtg-bbgDssPmx-elljrb59lzIy9WxGLpLYuctxIsBsqsRe9lbrbe3hHOEShpsu.jpg', name: 'Manta Geotêxtil para Caminhos' },
-      { file: 'i1HOAMGTBqjE5AGEA2QurP8QjcenScsE1T11L7Hp_Huv2sD5C1nA1uvH3bCiIzKkc56XQ9UFhfFKwfi_xV3PvM2nk1uwinUaC42h8sC6hglWLvRv5YTwc-pBKc4lnEYg1zAwSgGeUNt6YDCkX2Ie3JjiMpnjvlZYXI295jKcP57o6hFxnBB3MQu0VSGwF0Kh.jpg', name: 'Manta Geotêxtil para Drenagem' }
+      { file: 'i1HOAMGTBqjE5AGEA2QurP8QjcenScsE1T11L7Hp_Huv2sD5C1nA1uvH3bCiIzKkc56XQ9UFhfFKwfi_xV3PvM2nk1uwinUaC42h8sC6hglWLvRv5YTwc-pBKc4lnEYg1zAwSgGeUNt6YDCkX2Ie3JjiMpnjvlZYXI295jKcP57o6hFxnBB3MQu0VSGwF0Kh.jpg', name: 'Manta Geotêxtil para Drenagem' },
+      { file: 'image.png', name: 'Pavimentos e Revestimentos' },
+      { file: 'marmores.png', name: 'Mármores' },
+      { file: 'pavimento.png', name: 'Pavimento Flutuante' },
+      { file: 'Vinicilo.png', name: 'Pavimento Vinílico' },
+      { file: 'ceramia.png', name: 'Cerâmica para Exterior' },
+      { file: 'tampas.png', name: 'Tampas Galvanizadas - Vários Modelos e Medidas' }
     ]
   },
   'drogaria-e-tintas': {
@@ -555,9 +567,13 @@ const CATEGORIES = {
       { file: 'Hp5Rt3E8r4XEW17UqhuH7xncH0NymJL85CqWN1xRp4pU07TvauWWAjUzPKnwTbGG3MxQPmCPWzyqHpvqie2bQ_q861uatBN6qNHknkVSN48htgUpLLBuPaaRn2sFAYY7urxkOig1aNMG61CWaDk4bTqeG_Pvadkji8U9ZCXfhRp25pPKvJYpZhIzM2H2iQNR.jpg', name: 'Quadro Elétrico com Disjuntores' },
       { file: 'Iluminacao-Casacor-2018.jpg', name: 'Iluminação Decorativa para Sala' },
       { file: 'YBAkbIq_fqIZhJv8lpjwQVgWgjndVP6Xz39HsC6gYUFAEnEA4kpftB-pC4PrwBZge1ueyhNnP8hjaA_qn_PROL8E2P-sQSTWmKAellKyp9Z08Q75tw8mMKWw2J_SglCgVxbdwpB9FNtvp0xTWIxEjDX1j5a3sUlxaCckoBC2EW399NhGiBigL6qS.jpg', name: 'Kit Videoporteiro Vimar' },
-      { file: 'gd_312_1_tubo-corrugado-25mm-vermelhoverde.jpg', name: 'Tubo Corrugado 25mm' },
+      { file: 'gd_312_1_tubo-corrugado-25mm-vermelhoverde.jpg', name: 'Tubos Corrugados de Várias Cores e Medidas' },
       { file: 'mecanismos-efapel-logus-90.webp', name: 'Interruptor Logus 90 Efapel' },
-      { file: 'x_1seIv8OidWTyuundyzAZSHdRqc2S8YAK-UyVupCs0_fgl42scf0WYNjFA288R5b-uY-MT7yTeaR1e4wqzu6YLqMIIzutsCbXNnWmu5DPS_XGwyxB4e8q6QRo-Yvv_XJjkR6DtStANpl2nh4m0YBmmWsM4pHZ_-x0TEpCgkfJd4IrSmZaMdSionGh4xMIeY.jpg', name: 'Módulo Inteligente Shelly' }
+      { file: 'x_1seIv8OidWTyuundyzAZSHdRqc2S8YAK-UyVupCs0_fgl42scf0WYNjFA288R5b-uY-MT7yTeaR1e4wqzu6YLqMIIzutsCbXNnWmu5DPS_XGwyxB4e8q6QRo-Yvv_XJjkR6DtStANpl2nh4m0YBmmWsM4pHZ_-x0TEpCgkfJd4IrSmZaMdSionGh4xMIeY.jpg', name: 'Módulo Inteligente Shelly' },
+      { file: 'contador.png', name: 'Caixa Contador para EDP Box TEV' },
+      { file: 'caixa.png', name: 'Caixa Portinhola Equipada Monofásica TEV' },
+      { file: 'caixacontador.png', name: 'Caixa Contador de Água' },
+      { file: 'image.png', name: 'Interruptor Inteligente Sonoff com Wi-Fi para Automação Residencial' }
     ]
   },
   ferramentas: {
@@ -597,7 +613,7 @@ const CATEGORIES = {
       { file: 'JRRQaMiAYCq6JVQaLYHib2m77Oikv_aunK_vYOPYbR3f1hPlUt5F6bYku8dEuFByp3thUV0-P2TuiaxwnnNMDr-QRMJpk9QrsF3zR1ChwUXzHB904ONcIc7A1xRqUMUuaNMZoSCUpZ4iwEBy75YJ3oaIr2VuNygurKVPP9b7gu8onlTWa7PBy8e7gQAdSdqj.jpg', name: 'Caixa de Válvulas para Rega' },
       { file: 'NA23LQJpPGECII9ysdyDGVnXWL9-i-h2eTeijfWwqsA6m-NV_izQT8tbwr65GV_vjeYBhLdAfr78wj_cGZZKVDAZhv56NIj--wjKpRYT0exFO2vv0GaarlolowjRXZFQYvbxo9xw_tqUJf32PZUecOT9Utk-De4Z6TrVJvz6h_AnQWXJogyT7N4lZABI7MMA.jpg', name: 'Rolo de Relva Artificial' },
       { file: 'j3722-hunter-01.png', name: 'Eletroválvula para Rega Automática' },
-      { file: 'mangueira-man-blue-a15mm-15m.jpg', name: 'Mangueira de Rega 15m' }
+      { file: 'mangueira-man-blue-a15mm-15m.jpg', name: 'Mangueiras de Jardim' }
     ]
   }
 };
@@ -625,7 +641,7 @@ function render() {
   heroImg.alt = cat.name;
   document.getElementById('heroTitle').textContent = cat.name;
   document.getElementById('heroDesc').textContent = cat.desc;
-  document.getElementById('prodHeading').textContent = 'Produtos em ' + cat.name;
+  document.getElementById('prodHeading').textContent = 'Produtos de ' + cat.name;
   document.getElementById('prodCount').textContent = cat.images.length + ' artigos';
 
   const grid = document.getElementById('prodGrid');
