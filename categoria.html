@@ -208,6 +208,40 @@ nav {
   color: var(--muted); font-size: 16px;
 }
 
+/* ── CATÁLOGOS ── */
+.cdl-sec { padding-top: 0; }
+.cdl-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+.cdl-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; text-decoration: none;
+  transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;
+}
+.cdl-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.08); border-color: #CBD5E1; }
+.cdl-cover {
+  position: relative; display: block; aspect-ratio: 3/4;
+  background: #fff; border-bottom: 1px solid var(--border);
+}
+.cdl-cover img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 12px; display: block;
+}
+.cdl-badge {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .03em;
+  color: #fff; background: rgba(0,24,69,.72);
+  padding: 4px 8px; border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+.cdl-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 14px; flex: 1;
+}
+.cdl-title { font-size: 13.5px; font-weight: 600; color: var(--navy); line-height: 1.35; }
+.cdl-dl { flex-shrink: 0; color: var(--blue); transition: transform .22s; }
+.cdl-card:hover .cdl-dl { transform: translateY(2px); }
+@media (max-width:1100px) and (min-width:901px) { .cdl-grid { grid-template-columns: repeat(3,1fr); } }
+
 /* ── CTA ── */
 .pg-cta {
   background: var(--navy);
@@ -269,13 +303,15 @@ footer {
 }
 .foot-logo img { height: 36px; filter: brightness(0) invert(1); opacity: .6; }
 .foot-copy { color: rgba(255,255,255,.60); font-size: 13px; }
-.foot-links { display: flex; gap: 28px; }
+.foot-links { display: flex; gap: 28px; align-items: center; }
 .foot-links a {
   color: rgba(255,255,255,.60); font-size: 12.5px;
   text-decoration: none; letter-spacing: .04em;
   transition: color .2s;
 }
 .foot-links a:hover { color: rgba(255,255,255,.8); }
+.foot-lr img { height: 26px; display: block; opacity: .65; transition: opacity .2s; }
+.foot-lr:hover img { opacity: 1; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -287,6 +323,8 @@ footer {
   .pg-hero-desc { font-size: 15px; }
   .prod-sec { padding: 48px 20px 64px; }
   .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cdl-sec { padding-top: 0; }
+  .cdl-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
   .pg-cta { padding: 72px 20px; }
   footer { padding: 24px 20px; flex-direction: column; text-align: center; }
   .foot-links { justify-content: center; }
@@ -443,6 +481,15 @@ footer {
   <div class="prod-grid" id="prodGrid"></div>
 </section>
 
+<!-- CATÁLOGOS -->
+<section class="prod-sec cdl-sec" id="catalogSec" aria-label="Catálogos para Download" hidden>
+  <div class="prod-header">
+    <h2 class="prod-heading" id="cdlHeading">Catálogos</h2>
+    <span class="prod-count" id="cdlCount"></span>
+  </div>
+  <div class="cdl-grid" id="cdlGrid"></div>
+</section>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lbClose">&times;</span>
@@ -476,6 +523,9 @@ footer {
     <a href="/politica-de-privacidade.html">Política de Privacidade</a>
     <a href="https://www.instagram.com/sanifase_/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=61588821627221" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener noreferrer" class="foot-lr" title="Livro de Reclamações Eletrónico — apresente a sua reclamação online">
+      <img src="/logo-livro.webp" alt="Livro de Reclamações Eletrónico" loading="lazy">
+    </a>
   </div>
 </footer>
 
@@ -508,6 +558,9 @@ const CATEGORIES = {
       { file: 'VlIpfJAVSjfXb1pJ-WpoQHE77XMcmcE2Vqf8QeImoge-yeUbNj4HUWe_JOKQkzTb1eDzRcE1ypuBwq8JloXrnZpVFEXqxdNirtd3-ymav9hh-1ufyd699yLawqZMRz63vnmV4bE0Sn2jdZfs4mrVQXVKyEcHajnKlQcLNu0TxlqaraCE_rRhsjkfpN_7DCJi.jpg', name: 'Torneira Monocomando Dourada' },
       { file: 'banheira-de-hidromassagem-moderna-anafe.jpg', name: 'Banheira Autónoma de Casal' },
       { file: 'limpiar-the-gap_984x550_acf_cropped@2x.jpg', name: 'Bidé e Sanita Suspensa' }
+    ],
+    catalogs: [
+      { file: 'casa-peixoto-kaza-cozy.pdf', name: 'Casa Peixoto · Gama Kaza / Cozy', size: '16.0 MB' }
     ]
   },
   climatizacao: {
@@ -543,6 +596,9 @@ const CATEGORIES = {
       { file: 'Vinicilo.png', name: 'Pavimento Vinílico' },
       { file: 'ceramia.png', name: 'Cerâmica para Exterior' },
       { file: 'tampas.png', name: 'Tampas Galvanizadas - Vários Modelos e Medidas' }
+    ],
+    catalogs: [
+      { file: 'neuce-neucetherm-isolamento-termico.pdf', name: 'Neuce · Neucetherm Isolamento Térmico Exterior', size: '28.5 MB' }
     ]
   },
   'drogaria-e-tintas': {
@@ -555,6 +611,21 @@ const CATEGORIES = {
       { file: 'Trinchas-Junior.png', name: 'Kit de Trinchas para Pintura' },
       { file: 'WEB_BODEGON_FAMILIA_PRODUCTOS_HIBRIDOS.png', name: 'Selante e Adesivo de Fixação' },
       { file: 'rolo-pintura-antigota-brico.webp', name: 'Rolo de Pintura Antigotas' }
+    ],
+    catalogs: [
+      { file: 'neuce-interiores.pdf', name: 'Neuce · Interiores', size: '6.8 MB' },
+      { file: 'neuce-cores-interior-exterior.pdf', name: 'Neuce · Carta de Cores Interior & Exterior', size: '3.1 MB' },
+      { file: 'neuce-exteriores-cores.pdf', name: 'Neuce · Exteriores · Carta de Cores', size: '4.1 MB' },
+      { file: 'neuce-esmaltes-cores.pdf', name: 'Neuce · Esmaltes · Carta de Cores', size: '1.5 MB' },
+      { file: 'neuce-neucedecor-cores.pdf', name: 'Neuce · Neucedecor · Carta de Cores', size: '1.1 MB' },
+      { file: 'neuce-neucemotions-metalicos-cores.pdf', name: 'Neuce · Neucemotions Metálicos', size: '2.9 MB' },
+      { file: 'neuce-microneuce-cores.pdf', name: 'Neuce · Microneuce · Carta de Cores', size: '1.6 MB' },
+      { file: 'neuce-woodneuce-cores.pdf', name: 'Neuce · Woodneuce · Madeiras (Cores)', size: '5.0 MB' },
+      { file: 'neuce-madeiras-mobiliario.pdf', name: 'Neuce · Madeiras · Indústria de Mobiliário', size: '462 KB' },
+      { file: 'neuce-pavineuce-pavimentos.pdf', name: 'Neuce · Pavineuce · Tintas para Pavimentos', size: '1.6 MB' },
+      { file: 'neuce-neucegrani-revestimento.pdf', name: 'Neuce · Neucegrani · Revestimento Decorativo', size: '1.7 MB' },
+      { file: 'neuce-neucepedra-cores.pdf', name: 'Neuce · Neucepedra · Revestimento Multicolor', size: '423 KB' },
+      { file: 'neuce-industria-metalomecanica.pdf', name: 'Neuce · Indústria · Metalomecânica', size: '727 KB' }
     ]
   },
   eletricidade: {
@@ -574,6 +645,10 @@ const CATEGORIES = {
       { file: 'caixa.png', name: 'Caixa Portinhola Equipada Monofásica TEV' },
       { file: 'caixacontador.png', name: 'Caixa Contador de Água' },
       { file: 'image.png', name: 'Interruptor Inteligente Sonoff com Wi-Fi para Automação Residencial' }
+    ],
+    catalogs: [
+      { file: 'efapel-geral.pdf', name: 'Efapel · Catálogo Geral', size: '55.2 MB' },
+      { file: 'efapel-aparelhagens-embeber.pdf', name: 'Efapel · Aparelhagem de Embeber', size: '4.9 MB' }
     ]
   },
   ferramentas: {
@@ -587,6 +662,10 @@ const CATEGORIES = {
       { file: 'TjGeirEu6GUHveJQBKkOJpjm-1N9paRS3P-2oHfLM2Le3tO2MUDNU_Y_zIqisIvho7gy3AfxzzsY4tbv0hoOUYxoGHYhI26HsCMr6F2Y8M4mhSfE00VIuJfYwQCNOmDDukML02a4ZlJElSMCu6LiaGD1PScD8DW4_O2A7E7DqFV8yWlJ9hX7fYj6rKpE8Inz.jpg', name: 'Kit de Ferramentas a Bateria Bosch' },
       { file: 'WCn861mTe6yBnLUj5lAChkvOYBYWnihfDqtB2ob1-TwWwX_3Xbeex-fzJFebNfeCwV2iXOD8-SJFyMcVCO1GB1Bj3kcgvQYDSTtTivetWZ92VEiu3fVuxquojd2AUYOBpkU_-ebuVL2gzPesg7_cjZapk1YJ80ARgXhbYbQQubp-LG1RcT_TRSVvEUiN3HSQ.jpg', name: 'Kit de Ferramentas e Acessórios' },
       { file: 'pk_1SproiP0WDpqjvEpuKQki1n7fBITh3iFdZQp3uV7E1V1lH7FHMdXPap-65d03XPnrSbsA0m_Ao41FhiIDMwf5_AmshHxFo-thE3XRvcR_SKQ4kDJ0bUOdIo3LjROAszb7xgIMZkS4o-X5ZTZMqz4J2FKSEW1BXLBEnTWQrntQ-K78pkw4VYvWJETTAS7C.jpg', name: 'Conjunto de Ferramentas a Bateria' }
+    ],
+    catalogs: [
+      { file: 'mantools-2025-2026.pdf', name: 'Mantools · Ferramentas 2025/2026', size: '58.4 MB' },
+      { file: 'vml-protecao-individual-2024.pdf', name: 'VML · Proteção Individual 2024 (EPI)', size: '47.4 MB' }
     ]
   },
   piscinas: {
@@ -614,6 +693,9 @@ const CATEGORIES = {
       { file: 'NA23LQJpPGECII9ysdyDGVnXWL9-i-h2eTeijfWwqsA6m-NV_izQT8tbwr65GV_vjeYBhLdAfr78wj_cGZZKVDAZhv56NIj--wjKpRYT0exFO2vv0GaarlolowjRXZFQYvbxo9xw_tqUJf32PZUecOT9Utk-De4Z6TrVJvz6h_AnQWXJogyT7N4lZABI7MMA.jpg', name: 'Rolo de Relva Artificial' },
       { file: 'j3722-hunter-01.png', name: 'Eletroválvula para Rega Automática' },
       { file: 'mangueira-man-blue-a15mm-15m.jpg', name: 'Mangueiras de Jardim' }
+    ],
+    catalogs: [
+      { file: 'artur-godinho-geral.pdf', name: 'Artur Godinho · Rega, Jardim & Agrícola', size: '4.9 MB' }
     ]
   }
 };
@@ -643,6 +725,21 @@ function render() {
   document.getElementById('heroDesc').textContent = cat.desc;
   document.getElementById('prodHeading').textContent = 'Produtos de ' + cat.name;
   document.getElementById('prodCount').textContent = cat.images.length + ' artigos';
+
+  // catálogos
+  const cdls = cat.catalogs || [];
+  if (cdls.length) {
+    document.getElementById('catalogSec').hidden = false;
+    document.getElementById('cdlHeading').textContent = 'Catálogos de ' + cat.name;
+    document.getElementById('cdlCount').textContent = cdls.length + (cdls.length === 1 ? ' catálogo' : ' catálogos');
+    document.getElementById('cdlGrid').innerHTML = cdls.map(c => {
+      const base = c.file.replace(/\.pdf$/, '');
+      return `<a class="cdl-card" href="/catalogos/${c.file}" download>
+        <span class="cdl-cover"><img src="/catalogos/capas/${base}.jpg" alt="Capa do catálogo ${c.name}" loading="lazy"><span class="cdl-badge">PDF · ${c.size}</span></span>
+        <span class="cdl-foot"><span class="cdl-title">${c.name}</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+      </a>`;
+    }).join('');
+  }
 
   const grid = document.getElementById('prodGrid');
   if (!cat.images.length) {
