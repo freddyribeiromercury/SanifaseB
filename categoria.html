@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://312xrrtc.apicdn.sanity.io https://312xrrtc.api.sanity.io; frame-ancestors 'none';">
 <title id="page-title">Categoria — Sanifase</title>
 <meta name="description" id="page-desc" content="Categorias de produtos Sanifase em Baião: drogaria, tintas, canalização, climatização, eletricidade, construção, ferramentas e mais.">
 <link rel="canonical" id="page-canonical" href="https://www.sanifase.pt/categoria.html">
@@ -704,72 +704,136 @@ function imgUrl(folder, filename) {
   return '/Artigos/' + encodeURIComponent(folder) + '/' + encodeURIComponent(filename);
 }
 
-function render() {
-  const params = new URLSearchParams(window.location.search);
-  const key = params.get('cat') || 'canalizacao';
+// ── CMS (Sanity) ──
+const SANITY_QUERY_URL = 'https://312xrrtc.apicdn.sanity.io/v2021-06-07/data/query/production';
+
+async function fetchFromCMS(key) {
+  const query = `*[_type=="categoria" && slug.current==$cat][0]{
+    nome, descricao, "hero": heroImagem.asset->url,
+    "produtos": *[_type=="produto" && references(^._id)]|order(ordem asc){nome, "img": imagem.asset->url},
+    "catalogos": *[_type=="catalogo" && references(^._id)]|order(ordem asc){nome, marca, "pdf": coalesce(ficheiro.asset->url, ficheiroUrl), "bytes": ficheiro.asset->size, "capa": capa.asset->url, tamanho}
+  }`;
+  const url = SANITY_QUERY_URL + '?query=' + encodeURIComponent(query) + '&%24cat=' + encodeURIComponent(JSON.stringify(key));
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('CMS respondeu ' + res.status);
+  const data = await res.json();
+  const r = data.result;
+  if (!r) return null;
+  // URLs para sanifase.pt são servidos same-origin (o alojamento envia
+  // cross-origin-resource-policy: same-origin); imagens do CDN do Sanity
+  // ficam absolutas e levam parâmetros de redimensionamento
+  const rel = (u) => u ? u.replace(/^https?:\/\/(www\.)?sanifase\.pt/i, '') : '';
+  const sized = (u, w) => u && u.includes('cdn.sanity.io') ? u + '?w=' + w + '&fit=max&auto=format' : u;
+  // ?dl= força o download nos ficheiros do CDN do Sanity (o atributo download
+  // do <a> só funciona same-origin)
+  const dl = (u) => u && u.includes('cdn.sanity.io') ? u + '?dl=' : u;
+  const fmtBytes = (b) => b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.round(b / 1024) + ' KB';
+  return {
+    nome: r.nome,
+    desc: r.descricao || '',
+    hero: sized(rel(r.hero), 1920),
+    produtos: (r.produtos || []).map(p => ({ nome: p.nome, src: sized(rel(p.img), 800) })),
+    catalogos: (r.catalogos || []).map(c => ({
+      titulo: (c.marca ? c.marca + ' · ' : '') + c.nome,
+      pdf: dl(rel(c.pdf)), capa: sized(rel(c.capa), 640),
+      tamanho: c.bytes ? fmtBytes(c.bytes) : (c.tamanho || '')
+    }))
+  };
+}
+
+function viewFromStatic(key) {
   const cat = CATEGORIES[key];
+  if (!cat) return null;
+  return {
+    nome: cat.name,
+    desc: cat.desc,
+    hero: imgUrl(cat.folder, cat.hero),
+    produtos: cat.images.map(item => ({ nome: item.name, src: imgUrl(cat.folder, item.file) })),
+    catalogos: (cat.catalogs || []).map(c => ({
+      titulo: c.name,
+      pdf: '/catalogos/' + encodeURIComponent(c.file),
+      capa: '/catalogos/capas/' + encodeURIComponent(c.file.replace(/\.pdf$/, '')) + '.jpg',
+      tamanho: c.size
+    }))
+  };
+}
 
-  if (!cat) {
-    document.getElementById('heroTitle').textContent = 'Categoria não encontrada';
-    document.getElementById('heroDesc').textContent = 'Volte à página inicial para explorar as nossas categorias.';
-    return;
-  }
-
-  document.getElementById('page-title').textContent = cat.name + ' em Baião — Sanifase';
-  document.getElementById('page-desc').setAttribute('content', cat.desc + ' Loja Sanifase em Baião — visite-nos ou ligue +351 918 532 497.');
+function render(key, view) {
+  document.getElementById('page-title').textContent = view.nome + ' em Baião — Sanifase';
+  document.getElementById('page-desc').setAttribute('content', view.desc + ' Loja Sanifase em Baião — visite-nos ou ligue +351 918 532 497.');
   document.getElementById('page-canonical').setAttribute('href', 'https://www.sanifase.pt/categoria.html?cat=' + encodeURIComponent(key));
   const heroImg = document.getElementById('heroImg');
-  heroImg.src = imgUrl(cat.folder, cat.hero);
-  heroImg.alt = cat.name;
-  document.getElementById('heroTitle').textContent = cat.name;
-  document.getElementById('heroDesc').textContent = cat.desc;
-  document.getElementById('prodHeading').textContent = 'Produtos de ' + cat.name;
-  document.getElementById('prodCount').textContent = cat.images.length + ' artigos';
+  heroImg.src = view.hero;
+  heroImg.alt = view.nome;
+  document.getElementById('heroTitle').textContent = view.nome;
+  document.getElementById('heroDesc').textContent = view.desc;
+  document.getElementById('prodHeading').textContent = 'Produtos de ' + view.nome;
+  document.getElementById('prodCount').textContent = view.produtos.length + ' artigos';
 
   // catálogos
-  const cdls = cat.catalogs || [];
+  const cdls = view.catalogos;
+  const catalogSec = document.getElementById('catalogSec');
+  catalogSec.hidden = !cdls.length;
   if (cdls.length) {
-    document.getElementById('catalogSec').hidden = false;
-    document.getElementById('cdlHeading').textContent = 'Catálogos de ' + cat.name;
+    document.getElementById('cdlHeading').textContent = 'Catálogos de ' + view.nome;
     document.getElementById('cdlCount').textContent = cdls.length + (cdls.length === 1 ? ' catálogo' : ' catálogos');
     document.getElementById('cdlGrid').innerHTML = cdls.map(c => {
-      const base = c.file.replace(/\.pdf$/, '');
-      return `<a class="cdl-card" href="/catalogos/${c.file}" download>
-        <span class="cdl-cover"><img src="/catalogos/capas/${base}.jpg" alt="Capa do catálogo ${c.name}" loading="lazy"><span class="cdl-badge">PDF · ${c.size}</span></span>
-        <span class="cdl-foot"><span class="cdl-title">${c.name}</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+      return `<a class="cdl-card" href="${c.pdf}" download>
+        <span class="cdl-cover"><img src="${c.capa}" alt="Capa do catálogo ${c.titulo}" loading="lazy"><span class="cdl-badge">PDF · ${c.tamanho}</span></span>
+        <span class="cdl-foot"><span class="cdl-title">${c.titulo}</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
       </a>`;
     }).join('');
   }
 
   const grid = document.getElementById('prodGrid');
-  if (!cat.images.length) {
+  if (!view.produtos.length) {
     grid.innerHTML = '<div class="prod-empty">Em breve mais produtos nesta categoria.</div>';
     return;
   }
 
-  grid.innerHTML = cat.images.map(item => {
-    const src = imgUrl(cat.folder, item.file);
-    return `<div class="prod-tile" data-src="${src}">
-      <div class="prod-tile-img"><img src="${src}" alt="${item.name}" loading="lazy"></div>
-      <p class="prod-tile-name">${item.name}</p>
+  grid.innerHTML = view.produtos.map(item => {
+    return `<div class="prod-tile" data-src="${item.src}">
+      <div class="prod-tile-img"><img src="${item.src}" alt="${item.nome}" loading="lazy"></div>
+      <p class="prod-tile-name">${item.nome}</p>
     </div>`;
   }).join('');
-
-  // lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  grid.addEventListener('click', e => {
-    const tile = e.target.closest('.prod-tile');
-    if (!tile) return;
-    lbImg.src = tile.dataset.src;
-    lb.classList.add('open');
-  });
-  document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
-  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
 }
 
-render();
+// lightbox (delegação — funciona com qualquer render)
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+document.getElementById('prodGrid').addEventListener('click', e => {
+  const tile = e.target.closest('.prod-tile');
+  if (!tile) return;
+  lbImg.src = tile.dataset.src;
+  lb.classList.add('open');
+});
+document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get('cat') || 'canalizacao';
+
+  // 1º render imediato com os dados locais (sem esperar pela rede)
+  const staticView = viewFromStatic(key);
+  if (staticView) render(key, staticView);
+
+  // depois atualiza com o CMS (fonte de verdade editável no Sanity Studio)
+  let cmsView = null;
+  try {
+    cmsView = await fetchFromCMS(key);
+  } catch (err) {
+    console.warn('CMS indisponível, a usar conteúdo local:', err.message);
+  }
+  if (cmsView) {
+    render(key, cmsView);
+  } else if (!staticView) {
+    document.getElementById('heroTitle').textContent = 'Categoria não encontrada';
+    document.getElementById('heroDesc').textContent = 'Volte à página inicial para explorar as nossas categorias.';
+  }
+})();
 
 // Mega menu
 document.querySelectorAll('.nav-has-dd').forEach(li => {
