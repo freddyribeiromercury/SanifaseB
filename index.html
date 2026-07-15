@@ -1928,6 +1928,19 @@ window.addEventListener('scroll', () => {
     'drogaria-e-tintas', 'eletricidade', 'ferramentas', 'piscinas', 'rega-e-jardim'];
   const SANITY_QUERY_URL = 'https://312xrrtc.apicdn.sanity.io/v2021-06-07/data/query/production';
   const query = '*[_type=="categoria"]|order(ordem asc){nome,"slug":slug.current,descricao,"hero":heroImagem.asset->url}';
+  // Conteúdo do CMS é editado por humanos, não é código de confiança: escapar
+  // antes de inserir via innerHTML e restringir URLs a same-origin ou https.
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+  function safeUrl(u) {
+    if (typeof u !== 'string') return '';
+    if (/^https:\/\//i.test(u)) return u;
+    if (u.startsWith('/') && !u.startsWith('//')) return u;
+    return '';
+  }
   fetch(SANITY_QUERY_URL + '?query=' + encodeURIComponent(query))
     .then(r => r.ok ? r.json() : null)
     .then(data => {
@@ -1940,7 +1953,9 @@ window.addEventListener('scroll', () => {
           a.href = '/categoria.html?cat=' + encodeURIComponent(c.slug);
           a.className = 'nav-dd-item';
           a.setAttribute('role', 'menuitem');
-          a.innerHTML = `<div class="nav-dd-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div><div class="nav-dd-name">${c.nome}</div>`;
+          const nome = escapeHtml(c.nome);
+          const hero = escapeHtml(safeUrl(c.hero) || '/logo_completo_highres.png');
+          a.innerHTML = `<div class="nav-dd-thumb"><img src="${hero}" alt="${nome}" loading="lazy"></div><div class="nav-dd-name">${nome}</div>`;
           grid.appendChild(a);
         });
       });
@@ -1950,9 +1965,13 @@ window.addEventListener('scroll', () => {
         extra.forEach(c => {
           const div = document.createElement('div');
           div.className = 'cat-card';
-          div.innerHTML = `<div class="cat-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div>
-            <div class="cat-body"><h3 class="cat-name">${c.nome}</h3><p class="cat-desc">${c.descricao || ''}</p>
-            <a href="/categoria.html?cat=${encodeURIComponent(c.slug)}" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>`;
+          const nome = escapeHtml(c.nome);
+          const hero = escapeHtml(safeUrl(c.hero) || '/logo_completo_highres.png');
+          const descricao = escapeHtml(c.descricao || '');
+          const slug = encodeURIComponent(c.slug);
+          div.innerHTML = `<div class="cat-thumb"><img src="${hero}" alt="${nome}" loading="lazy"></div>
+            <div class="cat-body"><h3 class="cat-name">${nome}</h3><p class="cat-desc">${descricao}</p>
+            <a href="/categoria.html?cat=${slug}" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>`;
           catGrid.appendChild(div);
         });
         const countEl = document.getElementById('catCount');

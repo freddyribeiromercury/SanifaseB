@@ -704,6 +704,20 @@ function imgUrl(folder, filename) {
   return '/Artigos/' + encodeURIComponent(folder) + '/' + encodeURIComponent(filename);
 }
 
+// Conteúdo do CMS é editado por humanos, não é código de confiança: escapar
+// antes de inserir via innerHTML e restringir URLs a same-origin ou https.
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+function safeUrl(u) {
+  if (typeof u !== 'string') return '';
+  if (/^https:\/\//i.test(u)) return u;
+  if (u.startsWith('/') && !u.startsWith('//')) return u;
+  return '';
+}
+
 // ── CMS (Sanity) ──
 const SANITY_QUERY_URL = 'https://312xrrtc.apicdn.sanity.io/v2021-06-07/data/query/production';
 
@@ -763,7 +777,7 @@ function render(key, view) {
   document.getElementById('page-desc').setAttribute('content', view.desc + ' Loja Sanifase em Baião — visite-nos ou ligue +351 918 532 497.');
   document.getElementById('page-canonical').setAttribute('href', 'https://www.sanifase.pt/categoria.html?cat=' + encodeURIComponent(key));
   const heroImg = document.getElementById('heroImg');
-  heroImg.src = view.hero;
+  heroImg.src = safeUrl(view.hero) || '/logo_completo_highres.png';
   heroImg.alt = view.nome;
   document.getElementById('heroTitle').textContent = view.nome;
   document.getElementById('heroDesc').textContent = view.desc;
@@ -778,9 +792,13 @@ function render(key, view) {
     document.getElementById('cdlHeading').textContent = 'Catálogos de ' + view.nome;
     document.getElementById('cdlCount').textContent = cdls.length + (cdls.length === 1 ? ' catálogo' : ' catálogos');
     document.getElementById('cdlGrid').innerHTML = cdls.map(c => {
-      return `<a class="cdl-card" href="${c.pdf}" download>
-        <span class="cdl-cover"><img src="${c.capa}" alt="Capa do catálogo ${c.titulo}" loading="lazy"><span class="cdl-badge">PDF · ${c.tamanho}</span></span>
-        <span class="cdl-foot"><span class="cdl-title">${c.titulo}</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+      const pdf = escapeHtml(safeUrl(c.pdf));
+      const capa = escapeHtml(safeUrl(c.capa));
+      const titulo = escapeHtml(c.titulo);
+      const tamanho = escapeHtml(c.tamanho);
+      return `<a class="cdl-card" href="${pdf}" download>
+        <span class="cdl-cover"><img src="${capa}" alt="Capa do catálogo ${titulo}" loading="lazy"><span class="cdl-badge">PDF · ${tamanho}</span></span>
+        <span class="cdl-foot"><span class="cdl-title">${titulo}</span><span class="cdl-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
       </a>`;
     }).join('');
   }
@@ -792,9 +810,11 @@ function render(key, view) {
   }
 
   grid.innerHTML = view.produtos.map(item => {
-    return `<div class="prod-tile" data-src="${item.src}">
-      <div class="prod-tile-img"><img src="${item.src}" alt="${item.nome}" loading="lazy"></div>
-      <p class="prod-tile-name">${item.nome}</p>
+    const src = escapeHtml(safeUrl(item.src));
+    const nome = escapeHtml(item.nome);
+    return `<div class="prod-tile" data-src="${src}">
+      <div class="prod-tile-img"><img src="${src}" alt="${nome}" loading="lazy"></div>
+      <p class="prod-tile-name">${nome}</p>
     </div>`;
   }).join('');
 }
@@ -851,7 +871,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList
           a.href = '/categoria.html?cat=' + encodeURIComponent(c.slug);
           a.className = 'nav-dd-item';
           a.setAttribute('role', 'menuitem');
-          a.innerHTML = `<div class="nav-dd-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div><div class="nav-dd-name">${c.nome}</div>`;
+          const nome = escapeHtml(c.nome);
+          const hero = escapeHtml(safeUrl(c.hero) || '/logo_completo_highres.png');
+          a.innerHTML = `<div class="nav-dd-thumb"><img src="${hero}" alt="${nome}" loading="lazy"></div><div class="nav-dd-name">${nome}</div>`;
           grid.appendChild(a);
         });
       });
