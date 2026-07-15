@@ -835,6 +835,30 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList
   }
 })();
 
+// Categorias criadas no CMS que ainda não estão no menu estático (ver index.html
+// para o mesmo mecanismo, incluindo o porquê de não usar a classe fade-up aqui)
+(function () {
+  const KNOWN = Object.keys(CATEGORIES);
+  const query = '*[_type=="categoria"]|order(ordem asc){nome,"slug":slug.current,"hero":heroImagem.asset->url}';
+  fetch(SANITY_QUERY_URL + '?query=' + encodeURIComponent(query))
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      const extra = ((data && data.result) || []).filter(c => c.slug && !KNOWN.includes(c.slug));
+      if (!extra.length) return;
+      document.querySelectorAll('.nav-dd-grid').forEach(grid => {
+        extra.forEach(c => {
+          const a = document.createElement('a');
+          a.href = '/categoria.html?cat=' + encodeURIComponent(c.slug);
+          a.className = 'nav-dd-item';
+          a.setAttribute('role', 'menuitem');
+          a.innerHTML = `<div class="nav-dd-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div><div class="nav-dd-name">${c.nome}</div>`;
+          grid.appendChild(a);
+        });
+      });
+    })
+    .catch(() => {});
+})();
+
 // Mega menu
 document.querySelectorAll('.nav-has-dd').forEach(li => {
   const btn = li.querySelector('.nav-dd-btn');

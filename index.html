@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#001845">
 <meta name="color-scheme" content="dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://312xrrtc.apicdn.sanity.io https://312xrrtc.api.sanity.io; frame-ancestors 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Primary SEO -->
@@ -1445,7 +1445,7 @@ footer {
 <!-- CATEGORIES -->
 <section class="sec" id="servicos" aria-label="Categorias de Produtos">
   <div class="sec-label fade-up">As Nossas Categorias</div>
-  <h2 class="sec-h fade-up d1">9 categorias.<br>Uma só loja.</h2>
+  <h2 class="sec-h fade-up d1"><span id="catCount">9</span> categorias.<br>Uma só loja.</h2>
   <p class="sec-p fade-up d2">Da canalização ao jardim, da eletricidade às piscinas — encontra tudo o que precisa para a sua obra ou projeto num único espaço.</p>
 
   <div class="cat-grid">
@@ -1918,6 +1918,49 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('solid', window.scrollY > 30);
 }, { passive: true });
+
+// Categorias criadas no CMS que ainda não estão no menu/grelha estáticos.
+// Não leva a classe fade-up: a animação de scroll já corre 100ms depois do
+// carregamento (mais cedo do que este fetch termina) e um elemento fade-up
+// nunca observado fica com opacity:0 para sempre.
+(function () {
+  const KNOWN = ['canalizacao', 'casa-de-banho', 'climatizacao', 'construcao',
+    'drogaria-e-tintas', 'eletricidade', 'ferramentas', 'piscinas', 'rega-e-jardim'];
+  const SANITY_QUERY_URL = 'https://312xrrtc.apicdn.sanity.io/v2021-06-07/data/query/production';
+  const query = '*[_type=="categoria"]|order(ordem asc){nome,"slug":slug.current,descricao,"hero":heroImagem.asset->url}';
+  fetch(SANITY_QUERY_URL + '?query=' + encodeURIComponent(query))
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      const extra = ((data && data.result) || []).filter(c => c.slug && !KNOWN.includes(c.slug));
+      if (!extra.length) return;
+
+      document.querySelectorAll('.nav-dd-grid').forEach(grid => {
+        extra.forEach(c => {
+          const a = document.createElement('a');
+          a.href = '/categoria.html?cat=' + encodeURIComponent(c.slug);
+          a.className = 'nav-dd-item';
+          a.setAttribute('role', 'menuitem');
+          a.innerHTML = `<div class="nav-dd-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div><div class="nav-dd-name">${c.nome}</div>`;
+          grid.appendChild(a);
+        });
+      });
+
+      const catGrid = document.querySelector('.cat-grid');
+      if (catGrid) {
+        extra.forEach(c => {
+          const div = document.createElement('div');
+          div.className = 'cat-card';
+          div.innerHTML = `<div class="cat-thumb"><img src="${c.hero || '/logo_completo_highres.png'}" alt="${c.nome}" loading="lazy"></div>
+            <div class="cat-body"><h3 class="cat-name">${c.nome}</h3><p class="cat-desc">${c.descricao || ''}</p>
+            <a href="/categoria.html?cat=${encodeURIComponent(c.slug)}" class="cat-link">Ver categoria <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>`;
+          catGrid.appendChild(div);
+        });
+        const countEl = document.getElementById('catCount');
+        if (countEl) countEl.textContent = KNOWN.length + extra.length;
+      }
+    })
+    .catch(() => { /* mantém apenas as categorias estáticas */ });
+})();
 
 // Mega menu
 document.querySelectorAll('.nav-has-dd').forEach(li => {
